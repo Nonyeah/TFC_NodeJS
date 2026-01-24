@@ -1,0 +1,217 @@
+<%- include('header', { title: 'The Fashion Connector' }) %>
+
+<h1 class="header-title">
+  <%= header === "all clothing" ? 'all clothing' : header %>
+</h1>
+
+
+<div class="top-image-border">
+  <div class="tib-inner">
+    <img src="/static/general_images/topimage11.jpg" />
+    <img src="/static/general_images/topimage12.jpg" />
+    <img src="/static/general_images/topimage13.jpg" />
+    <img src="/static/general_images/topimage14.jpg" />
+  </div>
+</div>
+
+<div class="category-container">
+  <div class="sort-menu-desktop-container">
+    <div class="sort-menu-categories">
+      <div class="colour">
+        <p class="label">colour</p>
+        <ul>
+          <li>
+            <label><input type="checkbox" value="black" /> black </label>
+          </li>
+          <li>
+            <label><input type="checkbox" value="brown" /> brown</label>
+          </li>
+          <li>
+            <label><input type="checkbox" value="blue" /> blue</label>
+          </li>
+          <li>
+            <label><input type="checkbox" value="pink" /> pink</label>
+          </li>
+          <li>
+            <label><input type="checkbox" value="red" /> red</label>
+          </li>
+          <li>
+            <label><input type="checkbox" value="white" /> white </label>
+          </li>
+
+          <li>
+            <button type="button" class="apply apply-category">apply</button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="category">
+        <p class="label">category</p>
+        <ul>
+          <li>
+            <label><input type="checkbox" value="outwear" /> outwear</label>
+          </li>
+          <li>
+            <label><input type="checkbox" value="dresses" /> dresses</label>
+          </li>
+          <li>
+            <label><input type="checkbox" value="jumpsuits" />jumpsuits</label>
+          </li>
+          <li>
+            <button type="button" class="apply apply-category">apply</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sort-menu-price">
+      <div class="price">
+        <p class="label">price</p>
+        <ul>
+          <li>
+            <label><input type="checkbox" value="high" /> sort high </label>
+          </li>
+          <li>
+            <label><input type="checkbox" value="low" /> sort low</label>
+          </li>
+          <li>
+            <button type="button" class="apply apply-price">apply</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="filter-button-container"></div>
+
+  <div class="sort-menu-mobile-container">
+    <div class="filter"><p>filters</p></div>
+    <div class="sort"><p>sort by</p></div>
+  </div>
+
+  <div class="mobile-filter-modal-container">
+    <div class="mobile-filter-page1">
+      <p class="close">&#10005;</p>
+      <p class="heading">filters</p>
+      <ul>
+        <li>categories</li>
+        <li>colour</li>
+      </ul>
+    </div>
+    <div class="mobile-filter-categories">
+      <p class="close">&#10005;</p>
+      <p class="heading">categories</p>
+      <ul>
+        <li>
+          <label><input type="checkbox" value="dresses" />dresses</label>
+        </li>
+        <li>
+          <label><input type="checkbox" value="outwear" />outwear</label>
+        </li>
+        <li>
+          <label><input type="checkbox" value="jumpsuits" />jumpsuits</label>
+        </li>
+      </ul>
+      <button type="button" class="apply mapply-category">apply</button>
+    </div>
+    <div class="mobile-filter-colour">
+      <p class="close">&#10005;</p>
+      <p class="heading">colour</p>
+      <ul>
+        <li>
+          <label><input type="checkbox" value="black" />black</label>
+        </li>
+        <li>
+          <label><input type="checkbox" value="brown" />brown</label>
+        </li>
+        <li>
+          <label><input type="checkbox" value="blue" />blue</label>
+        </li>
+        <li>
+          <label><input type="checkbox" value="pink" />pink</label>
+        </li>
+        <li>
+          <label><input type="checkbox" value="red" />red</label>
+        </li>
+        <li>
+          <label><input type="checkbox" value="white" />white</label>
+        </li>
+      </ul>
+      <button type="button" class="apply mapply-category">apply</button>
+    </div>
+  </div>
+
+  <div class="mobile-filter-modal-price-container">
+    <div class="mobile-filter-price">
+      <p class="close">&#10005;</p>
+      <p class="heading">price</p>
+      <ul>
+        <li>
+          <label
+            ><input type="checkbox" value="high" />Price (high - low)</label
+          >
+        </li>
+        <li>
+          <label><input type="checkbox" value="low" />Price (low - high)</label>
+        </li>
+      </ul>
+      <button type="button" class="apply apply-price">apply</button>
+    </div>
+  </div>
+
+  <div class="product-count">
+    <p></p>
+  </div>
+
+  <div class="image-gallery-container">
+    <% products.forEach((clothing) => { %>
+    <div
+      class="product-container <%= clothing.productCategory %> <%= clothing.colour %>"
+    >
+
+    <p class="top-label"><span data-rocFormName="<%=clothing.ROCformName %>" data-itemCode="<%= clothing.ROCItemCode %>" data-urlName="<%= clothing.urlName %>">&#9825;</span></p>
+      <a href="/clothing/<%= clothing.urlName %>">
+        <img
+          src="/static<%= clothing.mainImage %>"
+          alt="<%= clothing.productType %>"
+        />
+      </a>
+      <p class="product-brand"><%= clothing.brand %></p>
+      <p class="product-name"><%= clothing.productName %></p>
+      <% if(clothing.salePrice) { %>
+      <div class="price-sale-container">
+        <p class="product-price-sale">£<%= clothing.productPrice %></p>
+        <span class="sale-price">£<%= clothing.salePrice %></span>
+      </div>
+    </div>
+    <% } else { %>
+    <p class="product-price">£<%= clothing.productPrice %></p>
+  </div>
+  <% } %> <% }); %>
+</div>
+
+<div class="bottom-pic-banners">
+  <div>
+    <section>
+      <p>simple chic</p>
+      <button><a href="/clothing/outwear"
+      >shop now</a></button>
+    </section>
+    <img src="/static<%= products[3].largeStaticImage1 %>" alt="clothing-banner"
+    />
+  </div>
+  <div>
+    <section>
+      <p>casual wear</p>
+      <button><a href="/clothing/dresses"
+      >shop now</a></button>
+    </section>
+    <img src="/static<%= products[4].largeStaticImage2 %>" alt="clothing-banner"
+    />
+  </div>
+</div>
+
+
+<script type="module" src="/static/js/assets/pages-CoVFevKS.js" defer></script>
+
+<%- include('footer') %>

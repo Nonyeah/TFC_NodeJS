@@ -1,0 +1,950 @@
+p.menu-nav,
+.minor-nav-wishlist form {
+  margin: 200px 30px 0 30px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+p.menu-nav span {
+  text-transform: capitalize;
+}
+
+.minor-nav-wishlist {
+  display: flex;
+  justify-content: space-between;
+}
+
+.minor-nav-wishlist button {
+  padding: 6px 10px;
+  border: none;
+  outline: none;
+  background-color: #dcdcdc;
+  color: #303030;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: capitalize;
+  font-size: 14px;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.minor-nav-wishlist form span {
+  font-size: 30px;
+  margin: 0 5px;
+  color: #080808;
+}
+
+p.menu-nav a {
+  color: #000;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-size: 17px;
+}
+
+p.menu-nav span {
+  font-weight: bold;
+  font-size: 16px;
+}
+span.wishlist {
+  cursor: pointer;
+  display: inline-block;
+  width: 90%;
+  text-align: right;
+  font-size: 40px;
+  color: #808080;
+  padding: 0;
+}
+
+.item-added-tab {
+  width: auto;
+  height: auto;
+  padding: 16px;
+  background-color: #7e050b;
+  color: #fff;
+  font-family: Verdana, garamond, Geneva, Tahoma, sans-serif, sans-serif;
+  font-size: 0.8rem;
+  position: fixed;
+  top: 25%;
+  right: 25%;
+  z-index: 100;
+}
+
+.container-cover {
+  display: flex;
+  width: 100%;
+}
+
+.container-cover .product-container {
+  width: 60%;
+}
+
+.container-cover .main-image {
+  margin: 16px;
+}
+
+.product-container .main-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-cover .main-image img {
+  width: 75%;
+  height: auto;
+  cursor: pointer;
+}
+
+.left-arrow,
+.right-arrow {
+  padding: 16px;
+  font-size: 3rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.description-container {
+  width: 40%;
+  padding: 16px;
+}
+
+.thumb-images {
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.thumb-images-inner-container {
+  display: flex;
+  transition: all 0.8s linear;
+}
+
+.thumb-images img {
+  width: 19%;
+  height: auto;
+  margin: 0 3px;
+}
+
+.round-button-container {
+  display: none;
+}
+
+.highlight {
+  background-color: #505050;
+}
+
+.round-button-container span {
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 30px;
+  border: 1px solid grey;
+  margin: 0 0.2rem;
+  cursor: pointer;
+}
+
+h4.product-brand {
+  font-size: 30px;
+  font-family: "Tw Cen MT", sans-serif;
+  text-transform: uppercase;
+  color: #000;
+}
+
+.description-container p.product-name,
+.description-container p.product-price {
+  font-size: 20px;
+  line-height: 60%;
+}
+
+.stock {
+  color: red;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-family: Verdana, garamond, Geneva, Tahoma, sans-serif, sans-serif;
+  text-align: center;
+}
+
+#variantcontainer {
+  font-family: Verdana, garamond, Geneva, Tahoma, sans-serif, sans-serif;
+  font-size: 0.8rem;
+}
+
+.variant-container .ladies-variant,
+.variant-container .mens-variant {
+  display: flex;
+  margin: 20px 0;
+  justify-content: center;
+}
+
+.variant-container {
+  display: flex;
+  justify-content: center;
+}
+.variant-container span {
+  font-family: Verdana, garamond, Geneva, Tahoma, sans-serif, sans-serif;
+  font-size: 0.9rem;
+  margin: 5px 10px;
+  text-transform: capitalize;
+}
+
+.description-container span.variant {
+  font-family: Verdana, garamond, Geneva, Tahoma, sans-serif, sans-serif;
+}
+
+.description-container #variantcontainer {
+  margin: 20px 0;
+}
+
+.description-container button#add-to-shopping {
+  margin: 5px 0;
+  padding: 16px;
+  border: none;
+  outline: none;
+  background-color: #000;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  font-size: 14px;
+  width: 60%;
+  cursor: pointer;
+}
+
+.description-container button#add-to-wishlist,
+.wishlist-container button#move-to-cart {
+  margin: 5px 0;
+  padding: 7px;
+  border: none;
+  outline: none;
+  background-color: #e7e4e4;
+  color: #000;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  font-size: 14px;
+  width: 60%;
+  cursor: pointer;
+}
+
+.wish-heart {
+  font-size: 25px;
+  color: #070707;
+  display: inline-block;
+  transform: translateY(1px);
+  margin: 0 10px;
+}
+
+.tab-container {
+  margin: 40px 0;
+}
+
+.tab-container button {
+  display: inline-block;
+  width: 100%;
+  padding: 20px;
+  border: none;
+  outline: none;
+  font-family:
+    "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+    Arial, sans-serif;
+  font-size: 16px;
+  text-transform: capitalize;
+  cursor: pointer;
+  border-bottom: 1px solid rgb(218, 213, 213);
+  position: relative;
+  background-color: #f8f8f8;
+}
+
+.hidden-content {
+  /*display:none; */
+  height: 0;
+  overflow: hidden;
+  transition: height 0.8s linear;
+}
+
+.tab-container button::after {
+  content: "+";
+  font-size: 1rem;
+  position: absolute;
+  right: 10px;
+  font-weight: bold;
+}
+
+.tab-container button.open::after {
+  content: "-";
+  font-size: 1rem;
+  position: absolute;
+  right: 10px;
+  font-weight: bold;
+}
+
+.hidden-attribute1,
+.hidden-attribute2 {
+  display: none;
+}
+
+p.related-products {
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Two Cent MT", arial, sans-serif;
+  font-size: 1.7rem;
+  margin: 30px 0;
+}
+
+p.similar-products {
+  text-transform: uppercase;
+  font-family: "Two Cent MT", arial, sans-serif;
+  font-size: 0.6rem;
+  text-align: left;
+  border: 1px solid #dcdcdc;
+  border-radius: 10px;
+  padding: 10px;
+  display: inline-block;
+  width: auto;
+}
+
+.more-info {
+  margin: 30px 0;
+}
+
+.more-info li {
+  margin: 10px 0;
+  list-style-type: none;
+}
+
+.more-info li a {
+  color: #505050;
+  text-decoration: none;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+  font-size: 0.8rem;
+  text-transform: capitalize;
+}
+
+.more-info li a:hover {
+  color: #290755;
+}
+
+.hidden-content p {
+  padding: 16px 10px;
+  font: 14px arial;
+  line-height: 22px;
+  text-align: justify;
+}
+
+.hidden-content ul li {
+  padding: 2px;
+  font: 0.8rem arial;
+  margin: 0.8rem;
+}
+
+div#modal-cover {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.9);
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  scrollbar-width: thin;
+}
+
+.modal-image-container {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+}
+
+p#modal-close {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  color: #fff;
+  margin: 3% 3% 0 3%;
+  text-align: right;
+  cursor: pointer;
+}
+
+img#lrg-modal-image {
+  width: 70%;
+  height: auto;
+}
+
+span.left-modal-arrow,
+span.right-modal-arrow {
+  color: #fff;
+  font: 40px arial bold;
+  padding: 16px;
+  margin: 0 30px;
+  cursor: pointer;
+}
+
+.suggestions-cover {
+  margin: 30px 0;
+  display: flex;
+  align-items: center;
+}
+
+.s-overflow {
+  overflow: scroll;
+  scrollbar-width: none;
+}
+
+.suggestions-outer-container {
+  display: flex;
+  white-space: nowrap;
+  transition: 0.5s all ease-out;
+}
+
+.suggestions-container {
+  flex: 0 0 25%;
+  width: 25%;
+  margin: 10px 20px;
+  text-align: center;
+}
+
+.suggestions-cover span {
+  z-index: 10;
+  font-size: 40px;
+  margin: 0 20px;
+  padding: 16px;
+  cursor: pointer;
+  border: 1px solid grey;
+  background-color: #fff;
+}
+
+p.name,
+p.price {
+  text-transform: capitalize;
+  font-family: Verdana, garamond, Geneva, Tahoma, sans-serif, sans-serif;
+  font-size: 0.85rem;
+  color: #505050;
+}
+
+p.price {
+  font-weight: bold;
+}
+
+.suggestions-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.bottom-pic-banners {
+  display: flex;
+  justify-content: center;
+}
+
+.bottom-pic-banners section {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.bottom-pic-banners a {
+  text-decoration: none;
+  color: black;
+}
+
+.bottom-pic-banners div {
+  position: relative;
+  width: 50%;
+  text-align: center;
+}
+
+.bottom-pic-banners p {
+  color: #fff;
+  text-transform: uppercase;
+  font-family: "Two Cent MT", sans-serif;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.bottom-pic-banners button {
+  padding: 11px 18px;
+  border: none;
+  outline: none;
+  background-color: #fff;
+  text-transform: uppercase;
+}
+
+.bottom-pic-banners img {
+  width: 80%;
+  height: auto;
+  border: 0;
+}
+
+@media only screen and (min-width: 1400px) {
+  .bottom-pic-banners img {
+    width: 70%;
+    height: auto;
+    border: 0;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1000px) {
+  .container-cover {
+    justify-content: space-between;
+  }
+
+  .minor-nav-wishlist {
+    margin-top: 40px;
+  }
+
+  .minor-nav-wishlist .menu-nav a,
+  .minor-nav-wishlist .menu-nav span {
+    font-size: 0.8rem;
+  }
+
+  .form-wishlist button {
+    padding: 5px 8px;
+    font-size: 0.7rem;
+  }
+
+  .container-cover .product-container {
+    width: 60%;
+  }
+  .description-container {
+    width: 40%;
+    padding: 0 16px;
+  }
+
+  .item-added-tab {
+    top: 20%;
+    right: 15%;
+  }
+
+  .container-cover .main-image img {
+    width: 90%;
+    height: auto;
+  }
+
+  .left-arrow,
+  .right-arrow {
+    padding: 14px;
+    font-size: 2rem;
+  }
+
+  .description-container p.product-name,
+  .description-container p.product-price,
+  .description-container h4.product-brand {
+    font-size: 1rem;
+  }
+
+  .description-container button#add-to-shopping {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .description-container button#add-to-wishlist {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .thumb-images-inner-container {
+    display: flex;
+  }
+
+  .thumb-images img {
+    flex: 1 0 30%;
+    height: auto;
+    margin: 10px;
+  }
+
+  .product-container .main-image {
+    margin: 16px;
+  }
+
+  .hidden-content p {
+    font-size: 0.75rem;
+    line-height: 22px;
+  }
+
+  .more-info li a {
+    font-size: 0.8rem;
+  }
+
+  img#lrg-modal-image {
+    max-width: 70%;
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .container-cover {
+    flex-direction: column;
+  }
+
+  .minor-nav-wishlist {
+    margin-top: 40px;
+  }
+
+  .minor-nav-wishlist .menu-nav a,
+  .minor-nav-wishlist .menu-nav span {
+    font-size: 0.8rem;
+  }
+
+  .form-wishlist button {
+    padding: 5px 8px;
+    font-size: 0.7rem;
+  }
+
+  .container-cover .product-container,
+  .container-cover .description-container {
+    width: 100%;
+    margin: 2px 0;
+  }
+
+  .product-container .main-image {
+    text-align: center;
+    margin: 16px;
+  }
+
+  .left-arrow,
+  .right-arrow {
+    font-size: 2rem;
+    margin: 0 16px;
+  }
+
+  .thumb-images-inner-container {
+    display: flex;
+  }
+
+  .thumb-images img {
+    flex: 1 0 33%;
+    height: auto;
+    margin: 2%;
+  }
+
+  .round-button-container {
+    display: block;
+    text-align: center;
+    margin: 16px 0;
+  }
+
+  .container-cover .description-container {
+    padding: 0;
+  }
+
+  .price-sale-container-products {
+    display: flex;
+    justify-content: center;
+  }
+
+  p.product-sale-price {
+    text-align: center;
+  }
+
+  .description-container button#add-to-shopping {
+    display: block;
+    padding: 16px;
+    font-size: 12px;
+    width: 50%;
+    margin: 20px auto;
+  }
+
+  .description-container button#add-to-wishlist {
+    display: block;
+    padding: 12px;
+    font-size: 12px;
+    width: 50%;
+    margin: 20px auto;
+  }
+
+  .description-container p.product-name,
+  .description-container p.product-price,
+  .description-container h4.product-brand {
+    text-align: center;
+  }
+
+  #variantcontainer {
+    font-family: Verdana, garamond, Geneva, Tahoma, sans-serif, sans-serif;
+    font-size: 0.77rem;
+  }
+
+  .tab-container {
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  .tab-container button {
+    padding: 16px;
+    font-size: 0.85rem;
+  }
+
+  .tab-container p {
+    font-size: 0.7rem;
+  }
+
+  .more-info li a {
+    font-size: 0.8rem;
+  }
+
+  .suggestions-container {
+    flex: 0 0 50%;
+    width: 50%;
+  }
+
+  .suggestions-cover span {
+    font-size: 30px;
+  }
+
+  p.name {
+    display: none;
+  }
+  p.price {
+    font-size: 0.8rem;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 991px) {
+  .item-added-tab {
+    top: 19%;
+    right: 15%;
+  }
+  .thumb-images img {
+    flex: 1 0 30%;
+    height: auto;
+    margin: 10px;
+  }
+
+  .round-button-container {
+    display: block;
+    text-align: center;
+    margin: 16px 0;
+  }
+
+  .modal-image-container {
+    padding: 10px;
+    width: 100%;
+  }
+
+  p#modal-close {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    margin: 40px 30px;
+  }
+
+  img#lrg-modal-image {
+    width: 90%;
+    height: auto;
+  }
+
+  span.left-modal-arrow,
+  span.right-modal-arrow {
+    font: 30px arial bold;
+    padding: 16px;
+    margin: 0 10px;
+  }
+  .suggestions-container {
+    flex: 0 0 30%;
+    width: 30%;
+  }
+
+  .suggestions-cover span {
+    font-size: 20px;
+    margin: 0 10px;
+    padding: 12px;
+  }
+
+  .bottom-pic-banners {
+    flex-direction: column;
+  }
+
+  .bottom-pic-banners a {
+    display: inline-block;
+    width: 100%;
+  }
+
+  .bottom-pic-banners div {
+    width: 100%;
+  }
+
+  .bottom-pic-banners img {
+    width: 80%;
+    height: auto;
+    margin: 10px auto;
+    display: block;
+  }
+  p.name {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 599px) {
+  .topnav-search-mobile .search-container .mobile-search-form .search {
+    padding: 14px;
+  }
+  .minor-nav-wishlist {
+    margin-top: 50px;
+  }
+
+  .minor-nav-wishlist .menu-nav a,
+  .minor-nav-wishlist .menu-nav span {
+    font-size: 0.8rem;
+  }
+
+  .minor-nav-wishlist button {
+    font-size: 0.7rem;
+    padding: 6px 12px;
+  }
+
+  .item-added-tab {
+    top: 18%;
+    right: 15%;
+  }
+
+  #variantcontainer {
+    font-family: Verdana, garamond, Geneva, Tahoma, sans-serif, sans-serif;
+    font-size: 0.6rem;
+  }
+  .bottom-pic-banners {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bottom-pic-banners a {
+    display: inline-block;
+    width: 100%;
+  }
+
+  .bottom-pic-banners img {
+    width: 85%;
+    height: auto;
+    margin: 10px auto;
+    display: block;
+  }
+
+  .description-container button#add-to-shopping {
+    width: 80%;
+    font-size: 14px;
+  }
+  .description-container button#add-to-wishlist {
+    width: 80%;
+    font-size: 14px;
+  }
+
+  .left-arrow,
+  .right-arrow {
+    margin: 0 10px;
+  }
+
+  .thumb-images img {
+    flex: 1 0 30%;
+    height: auto;
+    margin: 2%;
+  }
+
+  .round-button-container {
+    display: block;
+    text-align: center;
+    margin: 16px 0;
+  }
+
+  #modal-cover {
+    overflow: hidden;
+  }
+
+  .modal-image-container {
+    padding: 10px;
+    width: 100%;
+  }
+
+  p#modal-close {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    margin: 40px 30px;
+  }
+
+  img#lrg-modal-image {
+    width: 80%;
+    height: auto;
+  }
+
+  span.left-modal-arrow,
+  span.right-modal-arrow {
+    font: 30px arial bold;
+    padding: 16px;
+    margin: 0 10px;
+  }
+
+  .suggestions-cover span {
+    font-size: 16px;
+    margin: 0 10px;
+    padding: 8px;
+  }
+
+  .suggestions-container .price,
+  .suggestions-container {
+    text-transform: capitalize;
+    font-size: 0.6rem;
+  }
+
+  .suggestions-container .name {
+    display: none;
+  }
+
+  p.similar-products {
+    text-transform: capitalize;
+    font-family: "Two Cent MT", arial, sans-serif;
+    font-size: 0.6rem;
+    text-align: left;
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+    padding: 5px;
+    display: inline-block;
+    width: auto;
+  }
+
+  p.related-products {
+    font-size: 1rem;
+  }
+
+  .bottom-pic-banners {
+    flex-direction: column;
+  }
+
+  .bottom-pic-banners div {
+    width: 100%;
+  }
+
+  .bottom-pic-banners img {
+    width: 90%;
+    height: auto;
+  }
+}
+
+@media screen and (min-width: 200px) and (max-width: 400px) {
+  .minor-nav-wishlist {
+    margin-top: 20px;
+  }
+
+  .minor-nav-wishlist .menu-nav a,
+  .minor-nav-wishlist .menu-nav span {
+    font-size: 0.65rem;
+  }
+
+  .minor-nav-wishlist button {
+    font-size: 0.65rem;
+    padding: 5px 7x;
+  }
+
+  .description-container p.product-name,
+  .description-container p.product-price,
+  .description-container h4.product-brand {
+    font-size: 0.9rem;
+  }
+}

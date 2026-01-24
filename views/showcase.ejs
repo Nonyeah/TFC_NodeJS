@@ -1,0 +1,55 @@
+<%- include('header', { title: 'The Fashion Connector - Designer Showcase' }) %>
+
+
+<h1 class="header-title">
+    designer showcase
+</h1>
+
+<div class="showcase-top-image-banner">
+    
+    <div class="section">
+    <img src="/static/showcase/arena.jpg" alt="arena page"/>
+    <p>Arena Page</p>
+    </div>
+    
+    <div class="section">
+     <img src="/static/showcase/cat.jpg" alt="cat patterson"/>
+     <p>Cat Patterson</p>
+     </div>
+     
+     <div class="section">
+      <img src="/static/showcase/daryver.jpg" alt="daryver guzman"/>
+      <p>Daryver Guzman</p>
+      </div>
+   
+      <div class="section">
+       <img src="/static/showcase/valentina.jpg" alt="valentina la porta"/>
+       <p>Valentina La Porta</p>
+       </div>
+       
+       <div class="section">
+        <img src="/static/showcase/selam.jpg" alt="sd yohans"/>
+        <p>S.D. Yohans</p>
+        </div> 
+   
+</div>
+
+<div class="showcase-gallery-container">
+    <% showcaseData.forEach((designer) => { %>
+        <div class="section">
+            <a href="/designer-showcase/<%= designer.designerName %>"><img src="<%= designer.displayImage %>" alt="<%= designer.designerName %>" /><a>
+            <p><%= designer.designerName %></p>
+        </div>
+    <% }) %>
+</div>
+
+
+<script
+  type="module"
+  src="/static/js/assets/showcase-A5mncvht.js"
+  defer
+></script>
+
+
+
+<%- include('footer') %>

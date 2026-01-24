@@ -1,0 +1,134 @@
+<%- include('header', { title: 'The Fashion Connector - wishlist' }) %>
+
+<h1 class="wishlist-header">My Wishlist</h1>
+
+<div class="wishlist-container">
+
+  <% wishItems.forEach(wish => { if(wish.productType.toLowerCase() === "bag") {%>
+
+  <div class="wish-item">
+    <form name="<%= wish.ROCformName %>" class="remove-wish-item">
+      <p class="close-wish">&times;</p>
+    </form>
+    <a href="/bags/products/<%= wish.urlName %>">
+      <img
+        src="/static<%= wish.mainImage %>"
+        alt="<%= wish.productCategory %>"
+        border="0"
+    /></a>
+    <p class="product-brand"><%= wish.brand %></p>
+    <p class="product-name"><%= wish.productName %></p>
+    <p class="product-price" style="margin-top:-15px;">£<%= wish.productPrice %></p>
+
+    <form
+      action="https://www.romancart.com/cart.asp"
+      method="post"
+      name="<%= wish.ROCformName %>"
+      target="ROC_dCTarget"
+      onsubmit="return ROC_fnDropCart();"
+    >
+      <input type="hidden" name="minicart" value="yes" />
+      <input type="hidden" name="storeid" value="60667" />
+      <input type="hidden" name="itemcode" value="<%= wish.ROCItemCode %>" />
+      <button type="submit" class="move-to-cart">move to cart</button>
+    </form>
+  </div>
+  <% } else if (wish.productType.toLowerCase() === "jewellery") { %>
+  <div class="wish-item">
+    <form name="<%= wish.ROCformName %>" class="remove-wish-item">
+      <p class="close-wish">&times;</p>
+    </form>
+    <a href="/jewellery/products/<%= wish.urlName %>">
+      <img
+        src="/static<%= wish.mainImage %>"
+        alt="<%= wish.productCategory %>"
+        border="0"
+    /></a>
+    <p class="product-brand"><%= wish.brand %></p>
+    <p class="product-name"><%= wish.productName %></p>
+    <p class="product-price">£<%= wish.productPrice %></p>
+
+    <form
+      action="https://www.romancart.com/cart.asp"
+      method="post"
+      name="<%= wish.ROCformName %>"
+      target="ROC_dCTarget"
+      onsubmit="return ROC_fnDropCart();"
+    >
+      <input type="hidden" name="minicart" value="yes" />
+      <input type="hidden" name="storeid" value="60667" />
+      <input type="hidden" name="itemcode" value="<%= wish.ROCItemCode %>" />
+      <button type="submit" class="move-to-cart">move to cart</button>
+    </form>
+  </div>
+
+  <% } else { %>
+  <div class="wish-item">
+    <form name="<%= wish.ROCformName %>" class="remove-wish-item">
+      <p class="close-wish">&times;</p>
+    </form>
+    <a href="/clothing/<%= wish.urlName %>">
+      <img
+        src="/static<%= wish.mainImage %>"
+        alt="<%= wish.productCategory %>"
+        border="0"
+    /></a>
+    <p class="product-brand"><%= wish.brand %></p>
+    <p class="product-name"><%= wish.productName %></p>
+    <p class="product-price">£<%= wish.productPrice %></p>
+
+    <form
+      action="https://www.romancart.com/cart.asp"
+      method="post"
+      name="<%= wish.ROCformName %>"
+      target="ROC_dCTarget"
+      onsubmit="return ROC_fnDropCart();"
+    >
+      <input type="hidden" name="minicart" value="yes" />
+      <input type="hidden" name="storeid" value="60667" />
+      <input type="hidden" name="itemcode" value="<%= wish.ROCItemCode %>" />
+
+         <div id="variantcontainer">
+        <span class="variant">Choose Your Size</span>&nbsp;
+        <select name="itemname2">
+          <option value="8"><%= wish.variant1 %></option>
+          <option value="10"><%= wish.variant2 %></option>
+          <option value="12"><%= wish.variant3 %></option>
+          <option value="14"><%= wish.variant4 %></option>
+        </select>
+      </div>
+      <button type="submit" class="move-to-cart">move to cart</button>
+    </form>
+  </div>
+  <% } }) %>
+</div>
+
+<div class="bottom-pic-banners">
+  <div>
+    <section>
+      <p>fine jewellery</p>
+      <button><a href="/jewellery/rings"
+      >shop now</a></button>
+    </section>
+    <img src="/static/static_jewellery_images/bottom_banner35.jpg" alt="jewellery-banner" />
+  
+  </div>
+  <div>
+    <section>
+      <p>grab bags</p>
+      <button><a href="/bags/tote"
+      >shop now</a></button>
+    </section>
+    <img src="/static/static_bag_images/bottom_banner19.jpg" alt="bag-banner"
+    />
+  </div>
+</div>
+
+
+<script
+  type="module"
+  src="/static/js/assets/products-BfD16MU5.js"
+  defer
+></script>
+
+<%- include('footer') %>

@@ -1,0 +1,226 @@
+<%- include('header-products', { metaData: clothingItem}) %>
+
+<div class="minor-nav-wishlist">
+  <p class="menu-nav">
+    <a href="/">home</a> /
+    <a href="/clothing/allclothing">clothing /</a>
+    <span><%= clothingItem[0].productName %></span>
+  </p>
+
+  <form
+    action="/wishlist"
+    method="POST"
+    class="form-wishlist"
+    id="form-wishlist"
+  >
+    <button type="submit" id="send-wish-list">
+      your wishlist <span>&#9825;</span>
+    </button>
+  </form>
+</div>
+
+<div class="container-cover">
+  <div class="product-container">
+    <% clothingItem.forEach((clothing) => { %>
+    <div class="main-image">
+      <span class="left-arrow">&lsaquo;</span>
+      <img
+        id="big-image"
+        src="/static<%=
+      clothing.mainImage %>"
+        alt="<%= clothing.productType %>"
+      /><span class="right-arrow">&rsaquo;</span>
+    </div>
+    <div class="thumb-images">
+      <div class="thumb-images-inner-container">
+        <img
+          src="/static<%= clothing.minorImage1 %>"
+          alt="<%= clothing.productCategory %>"
+        />
+        <img
+          src="/static<%= clothing.minorImage2 %>"
+          alt="<%= clothing.productCategory %>"
+        />
+        <img
+          src="/static<%= clothing.minorImage3 %>"
+          alt="<%= clothing.productCategory %>"
+        />
+        <img
+          src="/static<%= clothing.minorImage4 %>"
+          alt="<%= clothing.productCategory %>"
+        />
+
+        <img
+          src="/static<%= clothing.minorImage5 %>"
+          alt="<%= clothing.productCategory %>"
+        />
+      </div>
+    </div>
+    <div class="round-button-container">
+      <span class="round"></span>
+      <span class="round"></span>
+    </div>
+  </div>
+
+  <div class="description-container">
+    <h4 class="product-brand"><%= clothing.brand %></h4>
+    <p class="product-name"><%= clothing.productName %></p>
+    <p class="product-price">
+     <% if(clothing.salePrice) { %>
+      <div class="price-sale-container-products">
+    <p class="product-price-sale">Was £<%= clothing.productPrice %></p>
+    <span class="sale-price"> Now £<%= clothing.salePrice %></span>
+      </div>
+    <% } else { %>
+    <p class="product-price">£<%= clothing.productPrice %></p>
+    <% } %>
+    <p class="stock"><%= clothing.availability ? "" : "sold out" %></p>
+
+    <form
+      action="https://www.romancart.com/cart.asp"
+      method="post"
+      name="<%= clothing.ROCformName %>"
+      target="ROC_dCTarget"
+      onsubmit="return ROC_fnDropCart();"
+    >
+      <input type="hidden" name="minicart" value="yes" />
+      <input type="hidden" name="storeid" value="60667" />
+      <input
+        type="hidden"
+        name="itemcode"
+        value="<%= clothing.ROCItemCode %>"
+      />
+      <div id="variantcontainer">
+        <span class="variant">Choose Your Size</span>&nbsp;
+        <select name="itemname2">
+          <option value="8"><%= clothing.variant1 %></option>
+          <option value="10"><%= clothing.variant2 %></option>
+          <option value="12"><%= clothing.variant3 %></option>
+          <option value="14"><%= clothing.variant4 %></option>
+        </select>
+      </div>
+      <button id="add-to-shopping" type="submit">add to shopping bag</button>
+      <button id="add-to-wishlist" type="button">
+        add to wishlist <span class="wish-heart">&#9825;</span>
+      </button>
+        <span class="hidden-attribute1" data-productType="<%= clothingItem.productType %>"></span>
+      <span class="hidden-attribute2" data-urlName="<%= clothingItem.urlName %>"></span>
+    </form>
+
+    <div class="tab-container">
+      <button class="tab-button">product description</button>
+      <div class="hidden-content">
+        <p><%= clothing.productDescription %></p>
+      </div>
+
+      <button class="tab-button">details and sizing</button>
+      <div class="hidden-content">
+        <p><%= clothing.detailsSizing %></p>
+      </div>
+      <% }) %>
+
+      <button class="tab-button">delivery</button>
+      <div class="hidden-content">
+        <p>
+          Ships from London, UK. Standard shipping within 3-5 business days.
+          Next Day delivery for orders placed before 1pm (please select express
+          delivery at checkout). Shipping to Europe within 5-10 business days
+          Plus customs. Rest of the World including USA, delivery timescale:
+          7-14 days plus customs.
+        </p>
+      </div>
+
+      <button class="tab-button">returns & exchanges</button>
+      <div class="hidden-content">
+        <ul>
+          <li>14 calendar day return, exchange and cancellation policy.</li>
+          <li>Buyer pays return shipping costs unless item is faulty.</li>
+
+          <li>
+            Original standard shipping charges refunded for UK and EU orders
+            only.
+          </li>
+          <li>
+            Customised goods, personalised goods and earrings, for pierced ears
+            from the Monvatoo London collection, are exempt from our 14 day
+            return policy.
+          </li>
+          <li>Please see terms for full details.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="more-info">
+      <ul>
+        <li><a href="/bags/tote">Shop more soft leather shoppers</a></li>
+        <li><a href="/bags/black">Shop black bags</a></li>
+        <li><a href="/bags/leather">Shop more leather handbags</a></li>
+        <li><a href="/bags/vegan">Shop vegan bags</a></li>
+        <li><a href="/jewellery">Shop jewellery</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="modal-cover">
+  <p id="modal-close">X</p>
+  <div class="modal-image-container">
+    <span class="left-modal-arrow">&lt;</span><img id="lrg-modal-image" /><span
+      class="right-modal-arrow"
+      >&gt;</span
+    >
+  </div>
+</div>
+
+<p class="related-products">you may also like</p>
+
+<div class="suggestions-cover">
+  <span class="l-s-arrow">&lt;</span>
+  <div class="s-overflow">
+    <div class="suggestions-outer-container">
+      <% suggestions.forEach((suggestion) => { %>
+      <div class="suggestions-container">
+        <p class="similar-products">related products</p>
+        <a href="/clothing/<%= suggestion.urlName %>">
+          <img
+            border="0"
+            src="/static<%= suggestion.mainImage %>"
+            alt="<%= suggestion.productCategory %>"
+        /></a>
+        <p class="name"><%= suggestion.productName %></p>
+        <p class="price">£<%= suggestion.productPrice %></p>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+  <span class="r-s-arrow">&gt;</span>
+</div>
+
+<div class="bottom-pic-banners">
+  <div>
+    <section>
+      <p>unique style</p>
+      <button><a href="/bags/tote"
+      >shop now</a></button>
+    </section>
+    <img src="/static<%= clothingItem[0].largeStaticImage1 %>" alt="bag-banner"
+    />
+  </div>
+  <div>
+    <section>
+      <p>dress to impress</p>
+      <button><a href="/bags/clutch"
+      >shop now</a></button>
+    </section>
+    <img src="/static<%= clothingItem[0].largeStaticImage2 %>" alt="bag-banner"
+    />
+  </div>
+</div>
+
+<script
+  type="module"
+  src="/static/js/assets/products-BfD16MU5.js"
+  defer
+></script>
+
+<%- include('footer') %>

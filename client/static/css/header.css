@@ -1,0 +1,463 @@
+html,
+body {
+  box-sizing: border-box;
+}
+
+.container {
+  display: block;
+}
+
+.topnav {
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 100;
+}
+
+.topnav .topnav-image {
+  display: flex;
+  align-items: flex-end;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.topnav .topnav-image a {
+  display: inline-block;
+  flex: 1 1 60%;
+}
+
+.topnav .topnav-image img {
+  margin: 20px 20px 0 8px;
+  width: 50%;
+  height: auto;
+}
+
+/* search block on desktop */
+.topnav-image div.search-container {
+  flex: 1 1 30%;
+  margin: 20px 20px 0 8px;
+}
+
+/* search block on mobile */
+.topnav-search-mobile div.search-container {
+  flex: 1 1 80%;
+  margin: 20px;
+}
+
+.topnav-search-mobile {
+  justify-content: center;
+}
+
+.topnav-image form.search-form {
+  display: flex;
+}
+
+.topnav-image input {
+  padding: 10px;
+  border: 1px solid grey;
+  width: 80%;
+}
+
+.topnav-image button {
+  padding: 8px;
+  border: 1px solid grey;
+  margin: 0 10px;
+  cursor: pointer;
+  background-color: #fff;
+  font-family: "Noto Sans Symbols";
+  font-size: 0.9rem;
+}
+
+.topnav-image .search{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.topnav .topnav-image span {
+  text-align: center;
+  font-size: 38px;
+  color: #ddd7d7;
+  cursor: pointer;
+}
+
+.topnav-image button#send-wish-list-pages {
+  transform: translateY(10px);
+}
+
+.topnav-image .search:hover {
+  background-color: #270352;
+  color: #fff;
+}
+
+.topnav ul {
+  display: flex;
+
+  list-style-type: none;
+  margin: 0;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 0;
+}
+
+.topnav li {
+  width: 20%;
+}
+
+.topnav li,
+.menu-section li {
+  padding: 8px 0;
+  margin: 0 2px;
+  text-transform: uppercase;
+  font-family: Calibri, "Trebuchet MS", sans-serif;
+  font-size: 16px;
+}
+
+.topnav li:hover {
+  background-color: #f2f2f2;
+}
+
+.topnav li a {
+  color: #000;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.navigation-block {
+  position: fixed;
+  top: 150px;
+  padding: 10px;
+  background-color: #fff;
+  z-index: 100;
+  display: none;
+  width: 100%;
+}
+
+.navigation-block .nav-flex-container {
+  display: flex;
+  width: 100%;
+}
+
+.nav-columns {
+  margin: 10px 30px;
+  flex: 20%;
+}
+
+.nav-columns p {
+  text-transform: uppercase;
+  font-family: Calibri, "Trebuchet MS", sans-serif;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.nav-image-container img {
+  width: 70%;
+  height: auto;
+}
+
+.navigation-block ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.navigation-block li {
+  text-transform: capitalize;
+  font: 14px arial;
+  margin: 30px 0;
+}
+
+.navigation-block li a {
+  color: #6b6868;
+  text-decoration: none;
+}
+
+.navigation-block li a:hover {
+  color: #3b1de6;
+}
+
+.mobile-nav-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  display: none;
+}
+
+a.burger-icon {
+  padding: 1.2rem;
+  font-size: 2rem;
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+}
+
+.mobile-links-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  overflow-x: hidden;
+  z-index: 100;
+  background-color: #fff;
+  transition: width 1s linear;
+  overflow-y: scroll;
+  height: 100%;
+  scrollbar-width: none;
+}
+
+ul.parent-ul {
+  margin: 30px 20px;
+  padding: 0;
+}
+
+.parent-list,
+.parent-list-no-child {
+  border-bottom: 1px solid #d3d3d3;
+}
+
+li.parent-list,
+.parent-list-no-child {
+  padding-bottom: 16px;
+}
+
+.parent-ul li {
+  list-style-type: none;
+  font-family:  Calibri, "Trebuchet MS", sans-serif;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+  margin: 2rem 0;
+  cursor: pointer;
+  position: relative;
+}
+
+.parent-ul li a {
+  text-decoration: none;
+  color: #000;
+}
+
+.parent-ul .child {
+  display: none;
+}
+
+.parent-list::before {
+  content: "+";
+  font-size: 1rem;
+  position: absolute;
+  right: 15px;
+  font-weight: bold;
+}
+
+.parent-list.open::before {
+  content: "-";
+  font-size: 1rem;
+  position: absolute;
+  right: 15px;
+  font-weight: bold;
+}
+
+p.close-slide-menu {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 2.5rem 2rem;
+  cursor: pointer;
+  text-align: right;
+}
+@media only screen and (min-width: 1000px) and (max-width: 1200px) {
+  .navigation-block {
+    top: 135px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .container {
+    display: none;
+  }
+
+  .mobile-nav-menu {
+    display: flex;
+    background-color: #fff;
+    align-items: center;
+    z-index: 100;
+    height: 220px;
+    padding: 0;
+    flex-direction: column;
+  }
+  /* first main flex item first child*/
+  .mobile-logo-container {
+    display: flex;
+
+   
+  }
+  .mobile-nav-menu .burger-icon {
+    font-size: 40px;
+    margin: 10px 0;
+    display: inline-block;
+    text-align: left;
+  }
+
+  .mobile-nav-menu .logo-header {
+    width: 90%;
+    height: auto;
+    margin-top: 30px;
+    text-align: center;
+    background-color: #fff;
+  }
+
+  .mobile-nav-menu .logo-header img {
+    width: 80%;
+    height: auto;
+    margin: 10px auto;
+  }
+
+  /* second main flex item 2nd child */
+  .topnav-search-mobile {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    margin: 0;
+    width: 100%;
+  }
+
+  .topnav-search-mobile form.search-form {
+    display: flex;
+    
+  }
+
+  .topnav-search-mobile input.search-input {
+    padding: 12px 16px;
+    flex: 1 1 60%;
+    margin-right: 10px;
+  }
+
+  .topnav-search-mobile button.search {
+    padding: 10px 16px;
+    flex: 1 1 10%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .topnav-search-mobile button.search:hover {
+    background-color: #270352;
+    color: #fff;
+  }
+
+  .topnav-search-mobile .form-wishlist button#send-wish-list-pages {
+    border: none;
+    outline: none;
+    background-color: #fff;
+    font-size: 30px;
+    color: #8d8989;
+    transform: translateY(-18px);
+    cursor: pointer;
+  }
+}
+@media only screen and (min-width: 801px) and (max-width: 1000px) {
+  .mobile-nav-menu .logo-header img {
+    width: 50%;
+    height: auto;
+  }
+
+  .mobile-nav-menu button#send-wish-list-pages {
+    margin-right: 20px;
+    font-family: "Noto Sans Symbols";
+  }
+
+    .topnav-search-mobile .mobile-search-form .mobile-search-input{
+     padding: 6px 9px;
+  }
+
+  .topnav-search-mobile .mobile-search-form .search{
+    padding: 8px 9px;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 800px) {
+  .mobile-nav-menu {
+    height: 200px;
+  }
+  .mobile-nav-menu .logo-header img {
+    width: 60%;
+  }
+
+  .mobile-nav-menu button#send-wish-list-pages {
+    margin-right: 20px;
+    font-family: "Noto Sans Symbols";
+    font-size: 30px;
+  }
+
+  a.burger-icon {
+    font-size: 2.5rem;
+  }
+
+  .mobile-nav-menu .logo-header {
+    margin-top: 20px;
+  }
+
+  .topnav-search-mobile .mobile-search-form .mobile-search-input{
+     padding: 6px 9px;
+  }
+
+  .topnav-search-mobile .mobile-search-form .search{
+    padding: 8px 9px;
+  }
+}
+
+@media screen and (max-width: 599px) {
+ 
+
+  .search-container .mobile-search-input{
+    padding:4px 3px;
+  }
+
+  .search-container .mobile-search-form button.search{
+    padding: 6px 8px;
+    margin: 10px 0;
+  }
+
+  .mobile-nav-menu .search-container {
+    width: 80%;
+  }
+
+  .mobile-nav-menu .form-wishlist {
+    width: 20%;
+  }
+
+  .mobile-nav-menu .search-container button {
+    font-size: 0.7rem;
+    padding: 5px 9px;
+  }
+  .mobile-nav-menu button#send-wish-list-pages {
+    margin-right: 5px;
+    font-family: "Noto Sans Symbols";
+  }
+
+  .mobile-nav-menu .topnav-search-mobile {
+    display: flex;
+  }
+
+  .topnav-search-mobile button#send-wish-list-pages {
+    margin-right: 10px;
+    font-family: "Noto Sans Symbols";
+  }
+
+  a.burger-icon {
+    font-size: 2rem;
+  }
+}
+
+@media screen and(min-width: 200px) and (max-width: 400px) {
+  .mobile-nav-menu .logo-header img {
+    width: 100%;
+    height: auto;
+    margin: 10px auto;
+  }
+
+ 
+
+}
+

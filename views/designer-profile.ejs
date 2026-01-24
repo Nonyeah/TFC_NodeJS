@@ -1,0 +1,48 @@
+<%- include('header', { title: 'The Fashion Connector - Designer Showcase' }) %>
+
+<div class="minor-nav-wishlist">
+  <p class="menu-nav">
+    <a href="/">home</a> /
+    <a href="/designer-showcase/">designer showcase /</a>
+    <span><%= profile[0].designerName %></span>
+  </p>
+</div>
+
+<h1 class="designer-name"><%= profile[0].designerName %></h1>
+
+<div class="designer-profile">
+  <div class="bio"><%= profile[0].bio1 %></div>
+  <div class="image-container">
+    <a href="#"><img class="large-image" src="<%= profile[0].image1 %>" alt="<%= profile[0].designerName %>" /></a>
+  </div>
+
+  <div class="bio"><%- profile[0].bio2 %></div>
+</div>
+
+<div class="showcase-modal">
+  <p class="close-modal">&#10005;</p>
+  <div class="arrow-images-container">
+  <p class="left-arrow">&lt;</p>
+  <div class="showcase-modal-image-container">
+  <img class="modal-image"  alt="<%= profile[0].designerName %>" />
+  </div>
+  <p class="right-arrow">&gt;</p>
+  </div>
+</div>
+
+<div class="thumb-images-container">
+  <% for (const property in profile[0]) {
+    if(property.includes("image")) { %> 
+      <a class="thumb-link" href="#">
+        <img src="<%= profile[0][property] %>" alt="<%= profile[0].designerName %>" /></a>
+        <% } %>
+    <% } %>
+</div>
+
+<script
+  type="module"
+  src="/static/js/assets/showcase-A5mncvht.js"
+  defer
+></script>
+
+<%- include('footer') %>

@@ -1,0 +1,300 @@
+<%- include('header-products', { metaData: product }) %>
+
+<div class="minor-nav-wishlist">
+  <p class="menu-nav">
+    <a href="/">home</a> / <% if(label == "new arrivals"){ %>
+    <a href="/new-arrivals">new arrivals /</a>
+    <span><%= product[0].productName %></span>
+    <% } else { %>
+    <a href="/jewellery">jewellery/</a>
+    <a href="/brands/<%= ((product[0].brand).toLowerCase()).split(" ")[0] %>"><%= product[0].brand %> /</a>
+    <span><%= product[0].productName %></span>
+    <% } %>
+  </p>
+  <form
+    action="/wishlist"
+    method="POST"
+    class="form-wishlist"
+    id="form-wishlist"
+  >
+    <button type="submit" id="send-wish-list">
+      your wishlist <span>&#9825;</span>
+    </button>
+  </form>
+</div>
+
+<div class="container-cover">
+  <div class="product-container">
+    <% product.forEach((product) => { %>
+    <div class="main-image">
+      <span class="left-arrow">&lsaquo;</span>
+      <img
+        id="big-image"
+        src="/static<%=
+      product.mainImage %>"
+        alt="<%= product.productType %>"
+      /><span class="right-arrow">&rsaquo;</span>
+    </div>
+    <div class="thumb-images">
+      <div class="thumb-images-inner-container">
+        <img
+          src="/static<%= product.minorImage1 %>"
+          alt="<%= product.productCategory %>"
+        />
+        <img
+          src="/static<%= product.minorImage2 %>"
+          alt="<%= product.productCategory %>"
+        />
+        <img
+          src="/static<%= product.minorImage3 %>"
+          alt="<%= product.productCategory %>"
+        />
+        <img
+          src="/static<%= product.minorImage4 %>"
+          alt="<%= product.productCategory %>"
+        />
+
+        <img
+          src="/static<%= product.minorImage5 %>"
+          alt="<%= product.productCategory %>"
+        />
+      </div>
+    </div>
+    <div class="round-button-container">
+      <span class="round"></span>
+      <span class="round"></span>
+    </div>
+  </div>
+
+  <div class="description-container">
+    <h4 class="product-brand"><%= product.brand %></h4>
+    <p class="product-name"><%= product.productName %></p>
+    <p class="product-price">£<%= product.productPrice %></p>
+    <p class="stock"><%= product.availability ? "" : "sold out" %></p>
+
+    <form
+      action="https://www.romancart.com/cart.asp"
+      method="post"
+      name="<%= product.ROCformName %>"
+      target="ROC_dCTarget"
+      onsubmit="return ROC_fnDropCart();"
+    >
+      <input type="hidden" name="minicart" value="yes" />
+      <input type="hidden" name="storeid" value="60667" />
+      <input type="hidden" name="itemcode" value="<%= product.ROCItemCode %>" />
+
+      <% if(product.ladies && product.men) { %>
+      <div class="variant-container">
+        <div class="ladies-variant">
+          <span>Ladies Size</span>
+          <select name="itemname3">
+            <option value="<%= product.size1 %>"><%= product.size1 %></option>
+            <option value="<%= product.size2 %>"><%= product.size2 %></option>
+            <option value="<%= product.size3 %>"><%= product.size3 %></option>
+            <option value="<%= product.size4 %>"><%= product.size4 %></option>
+            <option value="<%= product.size5 %>"><%= product.size5 %></option>
+            <option value="<%= product.size6 %>"><%= product.size6 %></option>
+            <option value="<%= product.size7 %>"><%= product.size7 %></option>
+            <option value="<%= product.size8 %>"><%= product.size8 %></option>
+          </select>
+        </div>
+        <div class="mens-variant">
+          <span>Mens Size</span>
+          <select name="itemname2">
+            <option value="<%= product.size9 %>"><%= product.size9 %></option>
+            <option value="<%= product.size10 %>"><%= product.size10 %></option>
+            <option value="<%= product.size11 %>"><%= product.size11 %></option>
+            <option value="<%= product.size12 %>"><%= product.size12 %></option>
+            <option value="<%= product.size13 %>"><%= product.size13 %></option>
+            <option value="<%= product.size14 %>"><%= product.size14 %></option>
+            <option value="<%= product.size15 %>"><%= Number(product.size15).toFixed(1) %></option>
+            <option value="<%= product.size16 %>"><%= Number(product.size16).toFixed(1) %></option>
+          </select>
+        </div>
+      </div>
+      <% } else if(product.ladies && product.size2 && !product.mens) { %>
+      <div class="variant-container">
+        <div class="ladies-variant">
+          <span>Ladies Size</span>
+          <select name="itemname3">
+            <option value="<%= product.size1 %>"><%= product.size1 %></option>
+            <option value="<%= product.size2 %>"><%= product.size2 %></option>
+
+            <option value="<%= product.size3 %>"><%= product.size3 %></option>
+
+            <option value="<%= product.size4 %>"><%= product.size4 %></option>
+
+            <option value="<%= product.size5 %>"><%= product.size5 %></option>
+
+            <option value="<%= product.size6 %>"><%= product.size6 %></option>
+
+            <option value="<%= product.size7 %>"><%= product.size7 %></option>
+
+            <option value="<%= product.size8 %>"><%= product.size8 %></option>
+          </select>
+        </div>
+      </div>
+      <% } else if(product.ladies && !product.size2) { %>
+
+      <div class="variant-container">
+        <div class="ladies-variant">
+          <span>Ladies sizes</span>
+          <select name="itemname3">
+            <option value="<%= product.size1 %>"><%= product.size1 %></option>
+          </select>
+        </div>
+      </div>
+      <% } else  if(!product.ladies && !product.men) { 
+        "" 
+      } else { %>
+
+      <div class="variant-container">
+        <div class="mens-variant">
+          <span>Mens Size</span>
+          <select name="itemname2">
+            <option value="<%= product.size1 %>"><%= product.size1 %></option>
+
+            <option value="<%= product.size2 %>"><%= product.size2 %></option>
+
+            <option value="<%= product.size3 %>"><%= product.size3 %></option>
+
+            <option value="<%= product.size4 %>"><%= product.size4 %></option>
+
+            <option value="<%= product.size5 %>"><%= product.size5 %></option>
+
+            <option value="<%= product.size6 %>"><%= product.size6 %></option>
+
+            <option value="<%= product.size7 %>"><%= product.size7 %></option>
+
+            <option value="<%= product.size8 %>"><%= product.size8 %></option>
+          </select>
+        </div>
+      </div>
+
+      <% } %>
+
+      <button id="add-to-shopping" type="submit">add to shopping bag</button>
+      <button id="add-to-wishlist" type="button">
+        add to wishlist <span class="wish-heart">&#9825;</span>
+      </button>
+         <span class="hidden-attribute1" data-productType="<%= product.productType %>"></span>
+      <span class="hidden-attribute2" data-urlName="<%= product.urlName %>"></span>
+    </form>
+
+    <div class="tab-container">
+      <button class="tab-button">product description</button>
+      <div class="hidden-content">
+        <p><%= product.productDescription %></p>
+      </div>
+
+      <button class="tab-button">details and sizing</button>
+      <div class="hidden-content">
+        <p><%= product.detailsSizing %></p>
+      </div>
+      <% }) %>
+
+      <button class="tab-button">delivery</button>
+      <div class="hidden-content">
+        <p>
+          Ships from London, UK. Standard shipping within 3-5 business days.
+          Next Day delivery for orders placed before 1pm (please select express
+          delivery at checkout). Shipping to Europe within 5-10 business days
+          Plus customs. Rest of the World including USA, delivery timescale:
+          7-14 days plus customs.
+        </p>
+      </div>
+
+      <button class="tab-button">returns & exchanges</button>
+      <div class="hidden-content">
+        <ul>
+          <li>14 calendar day return, exchange and cancellation policy.</li>
+          <li>Buyer pays return shipping costs unless item is faulty.</li>
+
+          <li>
+            Original standard shipping charges refunded for UK and EU orders
+            only.
+          </li>
+          <li>
+            Customised goods, personalised goods and earrings, for pierced ears
+            from the Monvatoo London collection, are exempt from our 14 day
+            return policy.
+          </li>
+          <li>Please see terms for full details.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="more-info">
+      <ul>
+        <li><a href="/jewellery/<%= product[0].primaryCategory %>">shop more <%= product[0].primaryCategory %></a></li>
+        <li><a href="/jewellery/gold">Shop gold jewellery</a></li>
+        <li><a href="/jewellery/silver">Shop silver jewellery</a></li>
+        <li><a href="/bags">Shop bags</a></li>
+        <li><a href="/jewellery">Shop all jewellery</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="modal-cover">
+  <p id="modal-close">X</p>
+  <div class="modal-image-container">
+    <span class="left-modal-arrow">&lt;</span><img id="lrg-modal-image" /><span
+      class="right-modal-arrow"
+      >&gt;</span
+    >
+  </div>
+</div>
+
+<p class="related-products">you may also like</p>
+
+<div class="suggestions-cover">
+  <span class="l-s-arrow">&lt;</span>
+  <div class="s-overflow">
+    <div class="suggestions-outer-container">
+      <% suggestions.forEach((suggestion) => { %>
+      <div class="suggestions-container">
+        <p class="similar-products">related products</p>
+        <a href="/jewellery/products/<%= suggestion.urlName %>">
+          <img
+            border="0"
+            src="/static<%= suggestion.mainImage %>"
+            alt="<%= suggestion.productCategory %>"
+        /></a>
+        <p class="name"><%= suggestion.productName %></p>
+        <p class="price">£<%= suggestion.productPrice %></p>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+  <span class="r-s-arrow">&gt;</span>
+</div>
+
+<div class="bottom-pic-banners">
+  <div>
+    <section>
+      <p>statement jewels</p>
+      <button>shop now</button>
+    </section>
+    <a href="/jewellery/rings"
+      ><img src="/static<%= product[0].largeStaticImage1 %>" alt="bag-banner"
+    /></a>
+  </div>
+  <div>
+    <section>
+      <p>novelty jewellery</p>
+      <button>shop now</button>
+    </section>
+    <a href="/jewellery"
+      ><img src="/static<%= product[0].largeStaticImage2 %>" alt="bag-banner"
+    /></a>
+  </div>
+</div>
+
+<script
+  type="module"
+  src="/static/js/assets/products-BfD16MU5.js"
+  defer
+></script>
+
+<%- include('footer') %>

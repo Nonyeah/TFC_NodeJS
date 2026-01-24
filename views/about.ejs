@@ -1,0 +1,423 @@
+<%- include('header', { title: `The Fashion Connector - ${title}` }) %>
+
+<div class="about-us-container">
+  <h1 class="header-title">
+    <%= title === "contact" ? "contact us" : title === "about" ? "about us" :
+    title === "cookie" ? "privacy & cookies" : title %>
+  </h1>
+
+  <% if(title === "about") { %>
+
+  <div class="about-us">
+    <p>The Home Of Unique, Limited Edition, Luxury Fashion.</p>
+    <p>
+      The Fashion Connector, a London UK based company, enables you to buy the
+      finest limited edition, unique, jewellery, handbags, clothing and
+      accessory products created by designers from around the world. Each
+      designer is hand-picked based on the excellence of their work. The
+      products you will find are distinctive and beautiful. You can read some of
+      our customer testimonials here:
+      <a href="/customer-service/testimonials"> testimonials </a>
+    </p>
+    <p>
+      The Italian Luxe Collection and Vegan Luxe Collection features an array of
+      bags selected by us for you to buy and enjoy. All our designers ship
+      worldwide so wherever you're located you're guaranteed to get your
+      favourite item delivered to you. You can buy with confidence from our
+      website as we use hosted servers that utilize Secure Socket Layer (SSL)
+      and 3D Secure technology. In addition to this all our designers offer, at
+      minimum, a 14 day refund or exchange on any product purchased*. We also
+      have a dedicated customer care team, available 12 hours a day, to assist
+      you with any queries. We aim to respond to all email enquiries received
+      during working hours within 1 hour.
+    </p>
+    <p>
+      For further details regarding the terms of use of The Fashion Connector,
+      please refer to the Terms section on the website. Or why don't you drop us
+      an email: <b>hello@thefashionconnector.com</b>. We'd love to hear from
+      you.
+    </p>
+    <p>
+      <b
+        ><i
+          >*Personalised goods are exempt from our 14 day returns policy.</i
+        ></b
+      >
+    </p>
+    <div class="about-image-banner">
+      <img src="/static/general_images/p_dacosta.jpg" alt="image-banner" />
+      <p><i>Collection photo courtesy of Patricia Pereira DaCosta</i></p>
+    </div>
+  </div>
+  <% } else if(title === "contact") { %>
+
+    <div class="contact-us">
+    <div class="email-section">
+    <p>
+      Got a question or need help? No worries, we'd love to hear from you. Our
+      prefered method of contact is via email so if you do have any questions
+      about our products or regarding our privacy policy please email us at:
+      <b>hello@thefashionconnector.com.</b>
+    </p>
+
+    <p>
+      If you're a clothing, jewellery or handbag designer and would like to sell
+      with us on The Fashion Connector. Or if you're a graduate designer and
+      would like your work to be featured on our Designer Showcase page, please
+      email: <b>hello@thefashionconnector.com</b>
+    </p>
+  </div>
+
+
+  <div class="contact-image-banner">
+    <img src="/static/general_images/contact-banner1.jpg" alt="image-banner" />
+    <img src="/static/general_images/contact-banner2.jpg" alt="image-banner" />
+  </div>
+
+</div>
+
+  
+
+  <% } else if(title === "cookies") { %>
+
+  <div class="cookies">
+    <p class="text">
+      The Fashion Connector ("us", "we", or "our") operates the
+      www.thefashionconnector.com website (hereinafter referred to as the
+      "Service"). This page informs you of our policies regarding the
+      collection, use, and disclosure of personal data when you use our Service
+      and the choices you have associated with that data. We use your data to
+      provide and improve the Service. By using the Service, you agree to the
+      collection and use of information in accordance with this policy. Unless
+      otherwise defined in this Privacy Policy, the terms used in this Privacy
+      Policy have the same meanings as in our Terms and Conditions, accessible
+      from:
+      <a
+        class="text"
+        href="/customer-service/terms"
+        target="_blank"
+      >
+        Terms & Conditions
+      </a>
+    </p>
+
+    <p class="top-header">The Information We Collect And Use</p>
+    <p></p>
+
+    <p class="text">
+      The primary purpose of data collection on The Fashion Connector is to
+      enable us to provie and improve our services to you. The types of Data
+      Collected are as follows:
+    </p>
+
+    <p class="text">
+      <b>Personal Data:</b> While using our Service, for example: making a
+      purchase on our website, we may ask you to provide us with certain
+      personally identifiable information that can be used to contact or
+      identify you ("Personal Data"). Personally identifiable information may
+      include, but is not limited to your: Email address, First name and last
+      name, Address, City, Postal Code/ZIP.
+    </p>
+
+    <p class="top-header">Use of Data</p>
+
+    <p class="text">
+      <b>The Fashion Connector uses the collected data for various purposes:</b>
+      (1)To provide and maintain the Service. (2)To notify you about changes to
+      our Service. (3)To allow you to participate in interactive features of our
+      Service when you choose to do so. (4)To provide customer care and support.
+      (5)To provide analysis or valuable information so that we can improve the
+      Service. (6)To monitor the usage of the Service. (7)To detect, prevent and
+      address technical issues.
+    </p>
+
+    <p class="top-header">Disclosure Of Data</p>
+    <p class="text">
+      <b>Legal Requirements</b>
+
+      The Fashion Connector will only disclose your Personal Data in good faith
+      where necessary for the following reasons: (a)To comply with a legal
+      obligation. (b)To protect and defend the rights or property of The Fashion
+      Connector. (c)To prevent or investigate possible wrongdoing in connection
+      with the Service (d)To protect the personal safety of users of the Service
+      or the public. (e)To protect against legal liability. In addition to this
+      we will never sell your data to any third party.
+    </p>
+
+    <p class="top-header">Security Of Data</p>
+
+    <p class="text">
+      The security of your data is important to us, but remember that no method
+      of transmission over the Internet, or method of electronic storage is 100%
+      secure. However, we will always strive to use commercially acceptable
+      means to protect your Personal Data to ensure your details are kept
+      secure.
+    </p>
+
+    <p class="top-header">Cookies</p>
+
+    <p class="text">
+      <b>Cookies:</b> The cookies we and our business partners use on our
+      website can be grouped into the following categories:
+    </p>
+
+    <p class="text">
+      <b>Essential cookies:</b> Some of the cookies on our online services are
+      essential for us to be able to provide you with our services. An example
+      of this would be a cookie that enables you to make a purchase on our
+      website or one which allows communication between your browser and the
+      website. You can always opt out of accepting these cookies by adjusting
+      your privacy settings in your web browser. However, you may not be able to
+      use our website without these cookies.
+    </p>
+
+    <p class="text">
+      <b>Website functionality cookies:</b> These cookies enable you to browse
+      our online services and use features such as shopping baskets.
+    </p>
+
+    <p class="text">
+      <b>Website analytics cookies:</b>
+      We use these cookies to analyse how users interact with our website such
+      as the pages they visit, their geographical location and items viewed and
+      added to the shopping basket. We do this so that we can constantly improve
+      the products and services we provide to you. Google Analytics is a web
+      analytics service offered by Google that tracks and reports website
+      traffic. Google uses the data collected to track and monitor the use of
+      our Service. This data is shared with other Google services. Google may
+      use the collected data to contextualize and personalise the ads of its own
+      advertising network. You can opt-out of having made your activity on the
+      Service available to Google Analytics by installing the Google Analytics
+      opt-out browser add-on. The add-on prevents the Google Analytics
+      JavaScript (ga.js, analytics.js, and dc.js) from sharing information with
+      Google Analytics about visits activity. For more information on the
+      privacy practices of Google, please visit the Google Privacy & Terms web
+      page:
+      <a href="https://policies.google.com/privacy?hl=en" target="_blank"
+        >Google Policies</a
+      >
+    </p>
+
+    <p class="text">
+      <b
+        >Interest-based advertising or remarketing cookies (Google) & cookies
+        used on our partner websites:</b
+      >
+      You may have noticed, when browsing other websites, that you are shown
+      adverts for products or services which you may have previously searched
+      for. We also place adverts for our products on various other partners
+      websites which we believe are relevant to you. We therefore use cookies
+      (Google Analytics, Google Remarketing & Google Adsense) to collect
+      information about the types of things that interest you. Having these
+      cookies makes the adverts you see more relevant. To get more information
+      on how Google collects and uses your browsing data please visit this link:
+      <a
+        style="font-size: 12px; color: #000033"
+        href="https://policies.google.com/technologies/partner-sites"
+        target="_blank"
+        >Google Polices</a
+      >
+    </p>
+
+    <p class="top-header">How to reject or opt out of receiving cookies</p>
+
+    <p class="text">
+      If you want to delete any cookies that are already on your computer,
+      please refer to settings/privacy/help section on your web browser for
+      further instructions on how to delete stored cookies.
+      <b>Important:</b> Our website cannot always control third-party cookies
+      stored on your machine from our online partners and therefore setting your
+      cookie preferences with us will not stop those third-party cookies from
+      being stored on your machine. Therefore you must manage these cookies
+      directly with the relevant third party. Please see our Third party cookies
+      section below for more information. Information on deleting or controlling
+      cookies is available at www.AboutCookies.org. Please note that by deleting
+      our cookies or disabling future cookies you may not be able to access
+      certain areas or features of our site.
+    </p>
+
+    <p class="top-header">Changes To This Privacy Policy</p>
+
+    <p class="text">
+      We may update our Privacy Policy from time to time. We will notify you of
+      any changes by posting the new Privacy Policy on this page. You are
+      advised to review this Privacy Policy periodically for any changes.
+      Changes to this Privacy Policy are effective when they are posted on this
+      page.
+    </p>
+
+    <p class="top-header" Contact Us></p>
+
+    <p class="text">
+      If you have any questions about this Privacy Policy or our use of cookies
+      and how we use and or share you data, please contact us:
+
+      <b>hello@thefashionconnector.com.</b>
+    </p>
+  </div>
+
+  <% } else if(title === "testimonials") { %>
+
+  <div class="testimonials">
+    <h4>
+      What people are saying about us. Don't forget to check out our reviews on
+      Trust Pilot
+    </h4>
+
+    <p class="feedback-text">
+      "Good quality, fast delivery. Would definitely suggest it to everyone"
+      <span class="name-style">
+        - Ms Tatjana Maksimova. Southampton, United Kingdom.</span
+      >
+    </p>
+
+    <p class="feedback-text">
+      "Thank you so much, my bag came today super quick and the Toblerone a
+      lovely touch!"
+      <span class="name-style"> - Ms Julie Wells. Bucks, United Kingdom.</span>
+    </p>
+
+    <p class="feedback-text">
+      "Earings arrived, exactly as advertised, am delighted with them. Quick
+      efficient, well wrapped. Great service."
+      <span class="name-style">
+        - Ms Carol Longden. Roxburghshire, Scotland.</span
+      >
+    </p>
+
+    <p class="feedback-text">
+      "I've bought two bags so I far and I have to say they're the nicest bags
+      I've ever owned. Just beautiful. They also sell beautiful clothing &
+      jewellery."
+      <span class="name-style"> - Miss Samantha Wilson. Chesire, UK.</span>
+    </p>
+
+    <p class="feedback-text">
+      "I've just received my backpack and it's delicious as is the Toblerone.
+      Nice touch, great service. Thank you"
+      <span class="name-style"> - Mrs S. Lane. Kent, UK.</span>
+    </p>
+
+    <p class="feedback-text">
+      "The backpacks I bought are beautiful and the chocolate gift was just what
+      I needed after a long 12 hour shift."
+      <span class="name-style"> - Mrs M. Elliot. Clydebank, UK.</span>
+    </p>
+
+    <p class="feedback-text">
+      "I received my white Tassel Clutch bag & its lovely." -
+      <span class="name-style">Mrs Andrea Gayle. Bexley, Kent.</span>
+    </p>
+
+    <p class="feedback-text">
+      "My Australian Opal ring arrived safely and my daughter is thrilled with
+      it. It's really beautiful. Many thanks."
+      <span class="name-style"> - Mrs Gentry. Hertfordshire, UK.</span>
+    </p>
+
+    <p class="feedback-text">
+      "My navy blue tassel clutch arrived safe and sound and in time for when I
+      needed it. It is lovely. Thank you so much for your help!" -
+      <span class="name-style">Ms McCammond. Tyne & Wear, UK.</span>
+    </p>
+
+    <p class="feedback-text">
+      "Loved the bag I ordered, when I have saved enough just might buy another
+      one. Thank you."
+      <span class="name-style"> - Ms R. Cooper. Sheffield, UK.</span>
+    </p>
+
+    <p class="feedback-text">
+      "My wife was delighted with the bag. I was impressed with the initial and
+      on-going communication and tracing of the delivery. Ultimately the quality
+      of the product is what is important - and it's very good quality. thanks."
+      <span class="name-style"> - Mr Youds. Gloucestershire, UK.</span>
+    </p>
+
+    <p class="feedback-text">
+      "The Fashion Connector ran a competition on their Facebook page. The prize
+      was a 14k gold ring! I won the competition. The ring was sent to me within
+      a few days and I loved it!!! Thanks so much."
+      <span class="name-style"> - Karen Cianciola. North Carolina, USA.</span>
+    </p>
+
+    <p class="feedback-text">
+      "I bought a clutch bag from The Fashion Connector. There was a tiny postal
+      delay however, The Fashion Connector always kept me informed and
+      communicated quickly and when promised. As far as I'm concerned their
+      brand, credibility and integrity are excellent. Oh, and the bag was
+      amazing and beautiful looking."
+      <span class="name-style"> - Clare Tait. Devon, UK.</span>
+    </p>
+
+    <p class="feedback-text">
+      "I like the Fashion Connector because it gives different ideas on jewelry,
+      clothing and accessories, sometimes you do not know how to make your
+      outfit work with some accessories or jewelry, The Fashion Connector does
+      that perfectly and also it has beautiful stuff."
+      <span class="name-style">
+        - Danielle Gariépy-Duplantis, Quebec Canada.</span
+      >
+    </p>
+
+    <p class="feedback-text">
+      "I love the Fashion Connector for all the great deals you bring together
+      in one easy place!"
+      <span class="name-style">
+        - Anna Hill, Thunder Bay - Ontario, Canada.</span
+      >
+    </p>
+
+    <p class="feedback-text">
+      "As a designer/stylist it's all about the instant visual appeal! Hence my
+      attraction to The Fashion Connector. Exciting collaborations of clothes
+      and accessories...perfection and choice made easy. Try it, you will love
+      their style...I do!"
+      <span class="name-style">
+        - Natalie Paddick (Interior designer/fashion stylist), Bristol,
+        UK.</span
+      >
+    </p>
+  </div>
+
+  <% } else if(title === "advertising") { %>
+
+  <div class="advertising">
+    <h3>List your products and sell with The Fashion Connector</h3>
+
+    <p>
+      If you're a clothing, jewellery or handbag designer and would like to sell
+      with us on The Fashion Connector please email:
+      hello@thefashionconnector.com Our office hours are 8am-9pm GMT Mon-Fri.
+      Saturday - Sunday: 9am - 6pm GMT.
+    </p>
+
+    <h3>Showcase your graduate collection</h3>
+    <p>
+      If you're a graduate designer and wish to showcase your thesis collection
+      on the "Designer Showcase" segment of our website, reach out to us....we'd
+      love to hear from you.
+    </p>
+
+    <h3>Collaborations with fashion bloggers</h3>
+
+    <p>
+      If you're a fashion enthusiast and blogger and would like to collaborate
+      with The Fashion Connector and undertake product reviews please get in
+      touch with us.
+    </p>
+
+    <h3>Advertising</h3>
+    <p>
+      If you would like to advertise on
+      <strong>Thefashionconnector.com</strong> there are various ad banner
+      positions available on the designer showcase section of the website only.
+      Please contact us for more details
+    </p>
+  </div>
+  <% } %>
+</div>
+
+<script type="module" src="/static/js/assets/bottommenu-B2A_ZWII.js" defer></script>
+
+<%- include('footer') %>

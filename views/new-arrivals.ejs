@@ -1,0 +1,240 @@
+<%- include('header', { title: 'The Fashion Connector - New Arrivals' }) %>
+
+<h1 class="header-title"><%= productCategory %></h1>
+
+<div class="top-image-border">
+  <div class="tib-inner">
+    <img src="/static/general_images/topimage9.jpg" />
+    <img src="/static/general_images/topimage36.jpg" />
+    <img src="/static/general_images/topimage37.jpg" />
+    <img src="/static/general_images/topimage38.jpg" />
+  </div>
+</div>
+
+<div class="category-container">
+  <div class="sort-menu-desktop-container">
+    <div class="sort-menu-categories">
+      <div class="colour">
+        <p class="label">colour</p>
+        <ul>
+          <li>
+            <label><input type="checkbox" value="black" /> black </label>
+          </li>
+          <li>
+            <label><input type="checkbox" value="brown" /> brown</label>
+          </li>
+          <li>
+            <label><input type="checkbox" value="blue" /> blue</label>
+          </li>
+          <li>
+            <label><input type="checkbox" value="grey" /> grey</label>
+          </li>
+          <li>
+            <label><input type="checkbox" value="red" /> red</label>
+          </li>
+          <li>
+            <button type="button" class="apply apply-category">apply</button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="category">
+        <p class="label">category</p>
+        <ul>
+          
+          <li>
+            <label><input type="checkbox" value="clutch" />clutch</label>
+          </li>
+          <li>
+            <label><input type="checkbox" value="ring" /> rings</label>
+          </li>
+          <li>
+            <label><input type="checkbox" value="vegan" /> vegan </label>
+          </li>
+          <li>
+            <label><input type="checkbox" value="leather" /> leather</label>
+          </li>
+          <li>
+            <button type="button" class="apply apply-category">apply</button>
+          </li>
+        </ul>
+      </div>
+      <div class="brand">
+        <p class="label">brand</p>
+        <ul>
+          <li>
+            <label
+              ><input type="checkbox" value="vegan" /> vegan luxe collection
+            </label>
+          </li>
+          <li>
+            <label
+              ><input type="checkbox" value="leather" /> leather luxe
+              collection</label
+            >
+          </li>
+          <li>
+            <button type="button" class="apply apply-category">apply</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sort-menu-price">
+      <div class="price">
+        <p class="label">price</p>
+        <ul>
+          <li>
+            <label><input type="checkbox" value="high" /> sort high </label>
+          </li>
+          <li>
+            <label><input type="checkbox" value="low" /> sort low</label>
+          </li>
+          <li>
+            <button type="button" class="apply apply-price">apply</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="filter-button-container"></div>
+
+  <div class="sort-menu-mobile-container">
+    <div class="filter"><p>filters</p></div>
+    <div class="sort"><p>sort by</p></div>
+  </div>
+
+  <div class="mobile-filter-modal-container">
+    <div class="mobile-filter-page1">
+      <p class="close">&#10005;</p>
+      <p class="heading">filters</p>
+      <ul>
+        <li>categories</li>
+        <li>colour</li>
+        <li>brand</li>
+      </ul>
+    </div>
+    <div class="mobile-filter-categories">
+      <p class="close">&#10005;</p>
+      <p class="heading">categories</p>
+      <ul>
+        <li>
+          <label><input type="checkbox" value="clutch" />clutch</label>
+        </li>
+        <li>
+          <label><input type="checkbox" value="ring" />rings</label>
+        </li>
+      
+      </ul>
+      <button type="button" class="apply mapply-category">apply</button>
+    </div>
+    <div class="mobile-filter-colour">
+      <p class="close">&#10005;</p>
+      <p class="heading">colour</p>
+      <ul>
+        <li>
+          <label><input type="checkbox" value="black" />black</label>
+        </li>
+        <li>
+          <label><input type="checkbox" value="brown" />brown</label>
+        </li>
+        <li>
+          <label><input type="checkbox" value="blue" />blue</label>
+        </li>
+        <li>
+          <label><input type="checkbox" value="red" />red</label>
+        </li>
+        <li>
+          <label><input type="checkbox" value="grey" />grey</label>
+        </li>
+        <li>
+          <label><input type="checkbox" value="yellow" />yellow</label>
+        </li>
+      </ul>
+      <button type="button" class="apply mapply-category">apply</button>
+    </div>
+    <div class="mobile-filter-brand">
+      <p class="close">&#10005;</p>
+      <p class="heading">brand</p>
+      <ul>
+        <li>
+          <label><input type="checkbox" value="leather" />leather luxe</label>
+        </li>
+        <li>
+          <label><input type="checkbox" value="vegan" />vegan luxe </label>
+        </li>
+      </ul>
+      <button type="button" class="apply mapply-category">apply</button>
+    </div>
+  </div>
+
+  <div class="mobile-filter-modal-price-container">
+    <div class="mobile-filter-price">
+      <p class="close">&#10005;</p>
+      <p class="heading">price</p>
+      <ul>
+        <li>
+          <label
+            ><input type="checkbox" value="high" />Price (high - low)</label
+          >
+        </li>
+        <li>
+          <label><input type="checkbox" value="low" />Price (low - high)</label>
+        </li>
+      </ul>
+      <button type="button" class="apply apply-price">apply</button>
+    </div>
+  </div>
+
+
+  <div class="product-count">
+    <p></p>
+  </div>
+
+  <div class="image-gallery-container">
+    <% product.forEach((bag) => { %>
+    <div
+      class="product-container <%= bag.productCategory %> <%= bag.primaryCategory %> <%= bag.colour %> <%= bag.material %>"
+    >
+    <p class="top-label"><span data-rocFormName="<%=bag.ROCformName %>" data-itemCode="<%= bag.ROCItemCode %>" data-urlName="<%= bag.urlName %>">&#9825;</span></p>
+      <a href="/new-arrivals/<%= bag.urlName %>">
+        <img src="/static<%= bag.mainImage %>" alt="<%= bag.productType %>" />
+      </a>
+      <p class="product-brand"><%= bag.brand %></p>
+      <p class="product-name"><%= bag.productName %></p>
+      <% if(bag.salePrice) { %>
+      <div class="price-sale-container">
+        <p class="product-price-sale">£<%= bag.productPrice %></p>
+        <span class="sale-price">£<%= bag.salePrice %></span>
+      </div>
+    </div>
+    <% } else { %>
+    <p class="product-price">£<%= bag.productPrice %></p>
+  </div>
+  <% } %>  <% }); %>
+</div>
+<div class="bottom-pic-banners">
+  <div>
+    <section>
+      <p>accessory finds</p>
+      <button><a href="/bags/leather">shop now</a></button>
+    </section>
+    <img src="/static<%= product[0].largeStaticImage1 %>" alt="bag-banner" />
+  </div>
+  <div>
+    <section>
+      <p style="color:#292828">new arrivals</p>
+      <button><a href="/jewellery/rings">shop now</a></button>
+    </section>
+    <img
+      src="/static<%= product[product.length - 1].largeStaticImage2 %>"
+      alt="bag-banner"
+    />
+  </div>
+</div>
+
+
+<script type="module" src="/static/js/assets/pages-D8MJm2rK.js" defer></script>
+
+<%- include('footer') %>

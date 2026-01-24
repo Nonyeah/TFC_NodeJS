@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index,follow" />
+    <meta
+      name="description"
+      content="Shop independent designer fashion brands on The Fashion Connector"
+    />
+    <meta
+      name="keywords"
+      content="designer handbags, designer jewellery, soft leather handbags, gold cufflinks, dragon rings"
+    />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+    <!-- Google Analytics Tracking -->
+<script type="text/plain" data-cookie-consent="tracking" async src="https://www.googletagmanager.com/gtag/js?id=G-3VZQ6C647L"></script>
+<script type="text/plain" data-cookie-consent="tracking">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3VZQ6C647L');
+</script>
+<!-- end of Google Analytics Tracking-->
+
+
+    <!-- Cookie Consent by TermsFeed https://www.TermsFeed.com -->
+<script type="text/javascript" src="https://www.termsfeed.com/public/cookie-consent/4.1.0/cookie-consent.js" charset="UTF-8"></script>
+<script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palette":"light","language":"en","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false,"website_name":"The Fashion Connector","website_privacy_policy_url":"https://www.thefashionconnector.com/customer-service/cookies"});
+});
+</script>
+
+<!-- Below is the link that users can use to open Preferences Center to change their preferences.//-->
+<!--<a href="#" id="open_preferences_center">Update cookies preferences</a>//-->
+
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/static/css/header.css" />
+    <link rel="stylesheet" href="/static/css/index.css" />
+    <link rel="stylesheet" href="/static/css/products.css" />
+    <link rel="stylesheet" href="/static/css/footer.css" />
+    <link rel="stylesheet" href="/static/css/pages.css" />
+    <link rel="stylesheet" href="/static/css/wishlist.css" />
+    <link rel="stylesheet" href="/static/css/showcase.css" />
+    <link rel="stylesheet" href="/static/css/roc_stylesheet.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="topnav">
+        <div class="topnav-image">
+          <a href="/"
+            ><img src="/static/general_images/logo2.jpg" alt="logo-header" />
+          </a>
+          <div class="search-container">
+            <form class="search-form" action="/search" method="get">
+              <input
+                class="search-input"
+                name="search"
+                type="search"
+                maxlength="60"
+                pattern="[a-zA-Z\s0-9]+"
+                placeholder="Search for a product or brand..."
+                size="30"
+                value=""
+              />
+              <button class="search" type="submit">search</button>
+            </form>
+          </div>
+
+          <form
+            action="/wishlist"
+            method="POST"
+            class="form-wishlist"
+            id="form-wishlist-pages"
+          >
+            <button
+              style="border: none"
+              ;
+              type="submit"
+              id="send-wish-list-pages"
+            >
+              <span id="wishheart-pages">&#9825;</span>
+            </button>
+          </form>
+        </div>
+        <ul>
+          <li><a href="/new-arrivals">new arrivals</a></li>
+          <li class="a">
+            <a href="#">bags</a>
+          </li>
+          <li class="b">
+            <a href="#">jewellery</a>
+          </li>
+          <li class="c">
+            <a href="#">clothing</a>
+          </li>
+          <li class="d">
+            <a href="#">brands</a>
+          </li>
+          <li><a href="/designer-showcase">designer showcase</a></li>
+        </ul>
+      </div>
+
+      <div class="navigation-block a">
+        <div class="nav-flex-container">
+          <div class="nav-columns">
+            <p>Shop by style</p>
+            <ul>
+              <li><a href="/bags/backpack">backpack</a></li>
+              <li><a href="/bags/clutch">clutch</a></li>
+              <li><a href="/bags/crossbody">crossbody</a></li>
+              <li><a href="/bags/shoulder">shoulder</a></li>
+              <li><a href="/bags/tote">tote</a></li>
+              <li><a href="/bags">all bags</a></li>
+            </ul>
+          </div>
+
+          <div class="nav-columns">
+            <p>Shop by style</p>
+            <ul>
+              <li><a href="/bags/animal">animal</a></li>
+              <li><a href="/bags/briefcase">briefcase</a></li>
+              <li><a href="/bags/leather">leather</a></li>
+              <li><a href="/bags/quilted">quilted</a></li>
+              <li><a href="/bags/vegan">vegan</a></li>
+            </ul>
+          </div>
+
+          <div class="nav-columns">
+            <p>Shop by colour</p>
+            <ul>
+              <li><a href="/bags/black">black</a></li>
+              <li><a href="/bags/white">white</a></li>
+              <li><a href="/bags/red">red</a></li>
+              <li><a href="/bags/green">green</a></li>
+              <li><a href="/bags/blue">blue</a></li>
+            </ul>
+          </div>
+
+          <div class="nav-columns">
+            <p>Shop by colour</p>
+            <ul>
+              <li><a href="/bags/brown">brown</a></li>
+              <li><a href="/bags/yellow">yellow</a></li>
+              <li><a href="/bags/metallic">metallic</a></li>
+              <li><a href="/bags/grey">grey</a></li>
+              <li><a href="/bags/pink">pink</a></li>
+            </ul>
+          </div>
+          <div class="nav-image-container">
+            <img
+              src="/static/general_images/nav-image.jpg"
+              alt="model-with-bag"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="navigation-block b">
+        <div class="nav-flex-container">
+          <div class="nav-columns">
+            <p>Shop by category</p>
+            <ul>
+              <li><a href="/jewellery/rings">rings</a></li>
+              <li><a href="/jewellery/earrings">earrings</a></li>
+              <li><a href="/jewellery/bracelets">bracelets</a></li>
+              <li><a href="/jewellery/necklaces">necklaces</a></li>
+              <li><a href="/jewellery/cufflinks">cufflinks</a></li>
+              <li><a href="/jewellery">all jewellery</a></li>
+            </ul>
+          </div>
+
+          <div class="nav-columns">
+            <p>Shop by category</p>
+            <ul>
+              <li><a href="/jewellery/animal">animal</a></li>
+              <li><a href="/jewellery/dragon">dragon</a></li>
+              <li><a href="/jewellery/fashion">fashion</a></li>
+              <li><a href="/jewellery/gold">fine jewellery</a></li>
+              <li><a href="/jewellery/gemstone">gemstone</a></li>
+              <li><a href="/jewellery/silver">silver jewellery</a></li>
+              <li><a href="/jewellery/vermeil">vermeil</a></li>
+            </ul>
+          </div>
+
+          <div class="nav-columns">
+            <p>Shop by colour</p>
+            <ul>
+              <li><a href="/jewellery/black">black</a></li>
+              <li><a href="/jewellery/purple">purple</a></li>
+              <li><a href="/jewellery/red">red</a></li>
+              <li><a href="/jewellery/green">green</a></li>
+              <li><a href="/jewellery/blue">blue</a></li>
+            </ul>
+          </div>
+
+          <div class="nav-columns">
+            <p>Shop by colour</p>
+            <ul>
+              <li><a href="/jewellery/brown">brown</a></li>
+              <li><a href="/jewellery/yellow">yellow</a></li>
+              <li><a href="/jewellery/pink">pink</a></li>
+              <li><a href="/jewellery/gold">gold</a></li>
+              <li><a href="/jewellery/silver">silver</a></li>
+            </ul>
+          </div>
+
+          <div class="nav-columns">
+            <p>Shop by designer</p>
+            <ul>
+              <li><a href="/brands/monvatoo">monvatoo london</a></li>
+              <li><a href="/brands/latelita">latelita london</a></li>
+              <li><a href="/brands/marlin">marlin birna</a></li>
+              <li><a href="/brands/evb">evb fine jewellery</a></li>
+            </ul>
+          </div>
+
+          <div class="nav-image-container">
+            <img
+              src="/static/general_images/nav-image3.jpg"
+              alt="model-with-ring"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="navigation-block c">
+        <div class="nav-flex-container">
+          <div class="nav-columns">
+            <p>Shop by category</p>
+
+            <ul>
+              <li><a href="/clothing/dresses">dresses</a></li>
+              <li><a href="/clothing/jumpsuits">jumpsuits</a></li>
+              <li><a href="/clothing/outwear">outwear</a></li>
+              <li><a href="/clothing/allclothing">all clothing</a></li>
+            </ul>
+          </div>
+
+          <div class="nav-image-container">
+            <img
+              src="/static/general_images/nav-image2.jpg"
+              alt="model-with-ring"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="navigation-block d">
+        <div class="nav-flex-container">
+          <div class="nav-columns">
+            <p>designer brands</p>
+            <ul>
+              <li><a href="/brands/latelita">latelita london</a></li>
+              <li><a href="/brands/monvatoo">monvatoo london</a></li>
+              <li><a href="/brands/marlin">marlin birna</a></li>
+              <li><a href="/brands/evb">evb fine art jewelry</a></li>
+            </ul>
+          </div>
+
+          <div class="nav-image-container">
+            <img
+              src="/static/general_images/nav-image4.jpg"
+              alt="model-with-ring"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-nav-menu">
+      <div class="mobile-logo-container">
+        <a class="burger-icon" href="#">&#9776;</a>
+        <div class="logo-header">
+          <a href="/"><img src="/static/general_images/mobile-logo.jpg" /></a>
+        </div>
+      </div>
+
+      <div class="topnav-search-mobile">
+        <div class="search-container">
+          <form class="mobile-search-form" action="/search" method="get">
+            <input
+              class="mobile-search-input"
+              name="search"
+              type="search"
+              maxlength="60"
+              pattern="[a-z\sA-Z0-9]+"
+              placeholder="Search for a product or brand..."
+              size="30"
+              value=""
+            />
+            <button class="search" type="submit">search</button>
+          </form>
+        </div>
+        
+        <form
+          action="/wishlist"
+          method="POST"
+          class="form-wishlist"
+          id="mobile-form-wishlist-pages"
+        >
+          <button
+            style="border: none"
+            ;
+            type="submit"
+            id="send-wish-list-pages"
+          >
+            <span id="mobile-wishheart-pages">&#9825;</span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="mobile-links-container">
+      <p class="close-slide-menu">&#9932;</p>
+      <ul class="parent-ul">
+        <li class="parent-list-no-child">
+          <a href="/new-arrivals">new arrivals</a>
+        </li>
+        <li class="parent-list">
+          handbags
+          <ul class="child child-ul-bags">
+            <li><a href="/bags">all bags</a></li>
+            <li><a href="/bags/clutch">clutch bags</a></li>
+            <li><a href="/bags/shoulder">shoulder bags</a></li>
+            <li><a href="/bags/tote">tote bags</a></li>
+            <li><a href="/bags/leather">leather bags</a></li>
+            <li><a href="/bags/vegan">vegan bags</a></li>
+            <li><a href="/bags/briefcase">briefcases</a></li>
+            <li><a href="/bags/quilted">quilted bags</a></li>
+            <li><a href="/bags/backpack">backpacks</a></li>
+          </ul>
+        </li>
+        <li class="parent-list">
+          jewellery
+          <ul class="child child-ul-jewellery">
+            <li><a href="/jewellery">all jewellery</a></li>
+            <li><a href="/jewellery/bracelets">bracelets</a></li>
+            <li><a href="/jewellery/cufflinks">cufflinks</a></li>
+            <li><a href="/jewellery/earrings">earrings</a></li>
+            <li><a href="/jewellery/necklaces">necklace</a></li>
+            <li><a href="/jewellery/rings">rings</a></li>
+          </ul>
+        </li>
+        <li class="parent-list">
+          clothing
+          <ul class="child child-ul-clothing">
+            <li><a href="/clothing/dresses">dresses</a></li>
+            <li><a href="/clothing/outwear">outwear</a></li>
+            <li><a href="/clothing/jumpsuits">jumpsuits</a></li>
+            <li><a href="/clothing/allclothing">all clothing</a></li>
+          </ul>
+        </li>
+
+        <li class="parent-list">
+          brands
+          <ul class="child child-ul-brands">
+            <li><a href="/brands/evb">Evb Fine Art Jewellery</a></li>
+            <li><a href="/brands/latelita">Latelita London</a></li>
+            <li><a href="/brands/marlin">Marlin Birna</a></li>
+            <li><a href="/brands/monvatoo">Monvatoo London</a></li>
+          </ul>
+        </li>
+        <li class="parent-list-no-child">
+          <a href="/designer-showcase">designer showcase</a>
+        </li>
+        <li class="parent-list-no-child"><a href="/customer-service/about">about us</a></li>
+        <li class="parent-list-no-child">
+          <a href="/customer-service/contact">contact us</a>
+        </li>
+        <li class="parent-list-no-child"><a href="/customer-service/terms">terms</a></li>
+      </ul>
+    </div>
+ 

@@ -1,0 +1,89 @@
+<%- include('header', { title: 'The Fashion Connector' }) %>
+
+<div class="home-body">
+  <div class="home-image">
+    <img src="/static/general_images/main-image.jpg" alt="homeimage" />
+  </div>
+</div>
+
+<div class="mobile-body">
+  <div class="mobile-body-container">
+    <div class="mobile-body-left">
+      <img src="/static/general_images/left-home-image.jpg" alt="home-image" />
+    </div>
+    <div class="mobile-body-right">
+      <img
+        class="top"
+        src="/static/general_images/right-home-image.jpg"
+        alt="home-image"
+      />
+      <p>
+        <span>winter essentials: </span>&nbsp; Shop the latest accessories on
+        trend
+      </p>
+      <img
+        class="bottom"
+        src="/static/general_images/right-home-image2.jpg"
+        alt="home-image"
+      />
+      <p><span>Bag It: </span>&nbsp; Shop the loveliest of luxe clutches</p>
+    </div>
+  </div>
+</div>
+
+<div class="image-carousel-parent">
+  <div class="image-carousel-container">
+    <% for(let i = 1; i < homePageBags.length; i *= 2){ %>
+    <div class="image-carousel-inner-container">
+      <a href="/bags/products/<%= homePageBags[i].urlName %>">
+        <img
+          src="/static/<%= homePageBags[i].mainImage %>"
+          alt="<%= homePageBags.productCategory %>"
+      /></a>
+      <p class="hide-name"><%= homePageBags[i].productName %></p>
+      <p>£<%= homePageBags[i].productPrice %></p>
+    </div>
+    <% } %>
+  </div>
+</div>
+
+<div class="gift-options">
+  <div class="options-container  top">
+    <div class="gift-container">
+      <a href="/brands/monvatoo"
+        ><img src="/static/general_images/gift1.jpg" alt="gift ideas"
+      /></a>
+      <p>pefectly presented</p>
+    </div>
+    <div class="gift-container">
+      <a href="/brands/monvatoo"
+        ><img src="/static/general_images/gift3.jpg" alt="gift ideas"
+      /></a>
+      <p>novelty gifts</p>
+    </div>
+  </div>
+
+  <div class="options-container">
+    <div class="gift-container">
+      <a href="/brands/marlin"
+        ><img src="/static/general_images/gift2.jpg" alt="gift ideas"
+      /></a>
+      <p>his & hers</p>
+      </div>
+     
+        <div class="gift-container">
+        <a href="/jewellery/gold"
+          ><img src="/static/general_images/gift4.jpg" alt="gift ideas"
+        /></a>
+        <p>affordable luxury</p>
+      </div>
+    </div>
+  </div>
+
+  <script
+    type="module"
+    src="/static/js/assets/index-B0kzZQPP.js"
+    defer
+  ></script>
+  <%- include('footer') %>
+</div>

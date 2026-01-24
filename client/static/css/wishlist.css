@@ -1,0 +1,121 @@
+.wishlist-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 50px 0;
+}
+
+.wishlist-container p.close-wish {
+  font-size: 30px;
+  color: #696969;
+  text-align: right;
+  cursor: pointer;
+}
+
+.wish-item {
+  width: 25%;
+  text-align: center;
+  margin: 30px 0;
+  
+}
+.wish-item img {
+  width: 80%;
+  height: auto;
+}
+
+.wish-item .product-name{
+  height: 10%;
+  width: auto;
+  
+}
+
+button.move-to-cart {
+  margin: 5px 0;
+  padding: 9px;
+  border: none;
+  outline: none;
+  background-color: #838080;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: capitalize;
+  font-size: 14px;
+  cursor: pointer;
+  width: 90%;
+}
+
+.wishlist-header {
+  margin: 200px 0 50px 0;
+  text-align: center;
+   font-family: garamond, serif;
+  font-size: 2rem;
+}
+
+.empty-wish {
+  text-align: center;
+  margin: 30px 0 50px 0;
+}
+
+.empty-wish p {
+  font-size: 0.8rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 40px 0;
+}
+
+.empty-wish button {
+  padding: 12px;
+  border: none;
+  outline: none;
+  background-color: #a19f9f;
+  color: #000;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: capitalize;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+@media only screen and (min-width: 600px) and (max-width: 991px) {
+  .wishlist-header {
+  margin: 240px 0 50px 0;
+  font-size: 1.8rem;
+}
+  .wish-item {
+    width: 30%;
+  }
+
+  .wishlist-container p.close-wish {
+    font-size: 30px;
+  }
+  button.move-to-cart {
+    margin: 5px 0;
+    padding: 9px;
+    border: none;
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 599px) {
+  
+  .wish-item {
+    width: 42%;
+  }
+
+   .wishlist-header {
+  margin: 270px 0 50px 0;
+  font-size: 1.5rem;
+}
+
+  .wishlist-container p.close-wish {
+    font-size: 30px;
+    color: #696969;
+    text-align: right;
+    cursor: pointer;
+  }
+
+  button.move-to-cart {
+    margin: 5px 0;
+    padding: 8px;
+    border: none;
+    font-size: 12px;
+  }
+}
