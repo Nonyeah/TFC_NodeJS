@@ -55,6 +55,15 @@ span.wishlist {
   padding: 0;
 }
 
+.form-wishlist button {
+  padding: 5px 8px;
+  background-color: #fff;
+}
+
+.form-wishlist button span {
+  font-size: 2.5rem;
+}
+
 .item-added-tab {
   width: auto;
   height: auto;
@@ -509,11 +518,6 @@ p.price {
     font-size: 0.8rem;
   }
 
-  .form-wishlist button {
-    padding: 5px 8px;
-    font-size: 0.7rem;
-  }
-
   .container-cover .product-container {
     width: 60%;
   }
@@ -595,11 +599,6 @@ p.price {
   .minor-nav-wishlist .menu-nav a,
   .minor-nav-wishlist .menu-nav span {
     font-size: 0.8rem;
-  }
-
-  .form-wishlist button {
-    padding: 5px 8px;
-    font-size: 0.7rem;
   }
 
   .container-cover .product-container,
@@ -786,7 +785,7 @@ p.price {
 
 @media only screen and (max-width: 599px) {
   .topnav-search-mobile .search-container .mobile-search-form .search {
-    padding: 14px;
+    padding: 6px;
   }
   .minor-nav-wishlist {
     margin-top: 50px;
