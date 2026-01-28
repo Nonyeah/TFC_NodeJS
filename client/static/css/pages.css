@@ -15,7 +15,7 @@ h3.header-title {
   text-align: center;
   font-family: garamond, serif;
   text-transform: capitalize;
-  padding: 16px
+  padding: 16px;
 }
 
 .tib-inner {
@@ -507,9 +507,13 @@ p.product-name {
   font-size: 12px;
 }
 
+
 .about-image-banner img {
   max-width: 100%;
   height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto
 }
 
 .contact-image-banner {
@@ -554,13 +558,47 @@ span.name-style {
   padding: 16px;
 }
 
-@media screen and (min-width: 901px) and (max-width: 1200px) {
+@media screen and (min-width: 1001px) and (max-width: 1200px) {
   h1.header-title,
   h3.header-title {
-    margin-top: 250px;
+    margin-top: 185px;
     font-size: 1.6rem;
   }
+}
 
+@media screen and (min-width: 1201px) and (max-width: 1600px) {
+  h1.header-title,
+  h3.header-title {
+    margin-top: 200px;
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (min-width: 1601px) {
+  h1.header-title,
+  h3.header-title {
+    margin-top: 220px;
+    font-size: 1.9rem;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1000px) {
+  h1.header-title,
+  h3.header-title {
+    margin-top: 230px;
+    font-size: 1.7rem;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 767px) {
+  h1.header-title,
+  h3.header-title {
+    margin-top: 230px;
+    font-size: 1.7rem;
+  }
+}
+
+@media screen and (min-width: 901px) and (max-width: 1200px) {
   .tib-inner img {
     width: 32%;
     height: auto;
@@ -590,12 +628,6 @@ span.name-style {
     scrollbar-width: none;
   }
 
-  h1.header-title,
-  h3.header-title {
-    margin-top: 220px;
-    font-size: 1.2rem;
-
-  }
   .image-gallery-container .product-container {
     width: 29%;
     height: auto;
@@ -616,11 +648,10 @@ span.name-style {
 
   .product-container p.product-brand {
     font-size: 0.9rem;
- 
   }
 
-  p.product-brand{
-       line-height: 150%;
+  p.product-brand {
+    line-height: 150%;
   }
   .product-container p.product-price,
   .product-container .sale-price,
@@ -671,9 +702,9 @@ span.name-style {
     font-size: 14px;
   }
 
-  h3.header-title{
+  h3.header-title {
     font: 1.2rem;
-    padding: 16px
+    padding: 16px;
   }
 }
 
@@ -714,11 +745,11 @@ span.name-style {
     font-size: 0.7rem;
   }
 
-.mobile-filter-modal-container button.apply,
-.mobile-filter-modal-price-container button.apply {
-  font-family: Verdana, garamond, Geneva, Tahoma, sans-serif, sans-serif;
-  font-size: 0.7rem;
-}
+  .mobile-filter-modal-container button.apply,
+  .mobile-filter-modal-price-container button.apply {
+    font-family: Verdana, garamond, Geneva, Tahoma, sans-serif, sans-serif;
+    font-size: 0.7rem;
+  }
 
   .product-container p.product-name {
     display: none;
@@ -774,7 +805,7 @@ span.name-style {
     transform: translate(0, 0);
   }
 
-  h3.header-title{
+  h3.header-title {
     font-size: 1rem;
   }
 }
