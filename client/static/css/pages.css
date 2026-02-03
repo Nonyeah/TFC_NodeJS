@@ -69,6 +69,7 @@ h3.header-title {
   width: 50%;
   text-align: center;
   cursor: pointer;
+  
 }
 
 .sort-menu-mobile-container div:hover {
@@ -81,8 +82,9 @@ h3.header-title {
 
 .sort-menu-categories {
   display: flex;
-  width: 50%;
+  width: 60%;
   align-items: center;
+  cursor: pointer;
 }
 
 .colour:hover,
@@ -94,13 +96,20 @@ h3.header-title {
 
 .sort-menu-price {
   display: flex;
-  width: 50%;
+  width: 40%;
   justify-content: right;
+  cursor:pointer
 }
 
 .sort-menu-categories div {
-  margin: 0 20px;
-  width: 50%;
+  margin: 0 15px;
+  
+  padding: 0 8px;
+  text-align: center;
+  
+}
+.sort-menu-categories div li{
+  text-align:left
 }
 .sort-menu-price div {
   width: 40%;
@@ -226,11 +235,12 @@ a.clear-filters {
 }
 
 .top-label span {
-  color: #afaeae;
+  color: #B8860b;
   font-size: 30px;
   cursor: pointer;
   position: absolute;
   right: 20px;
+  
 }
 
 .category-container .image-gallery-container {
@@ -648,8 +658,11 @@ span.name-style {
     height: auto;
   }
 
-  .product-container p.product-name {
-    display: none;
+  .product-container p.product-name,
+  .product-container p.product-price,
+  .product-container p.product-price-sale,
+  .product-container span.sale-price {
+    font-size: 0.8rem;
   }
 
   .sort-menu-desktop-container {
@@ -668,12 +681,7 @@ span.name-style {
   p.product-brand {
     line-height: 150%;
   }
-  .product-container p.product-price,
-  .product-container .sale-price,
-  .product-container .product-price-sale {
-    font-size: 0.9rem;
-    font-weight: normal;
-  }
+ 
 
   .heart {
     font-size: 1rem;
@@ -712,9 +720,10 @@ span.name-style {
 
   .product-container p.product-brand,
   .product-container p.product-price,
+  .product-container p.product-name,
   .product-container .sale-price,
   .product-container .product-price-sale {
-    font-size: 14px;
+    font-size: 0.8rem;
   }
 
   h3.header-title {

@@ -30,7 +30,7 @@ body {
 
 .topnav .topnav-image a {
   display: inline-block;
-  flex: 1 1 70%;
+  flex: 1 1 60%;
 }
 
 .topnav .topnav-image img {
@@ -41,7 +41,7 @@ body {
 
 /* search block on desktop */
 .topnav-image div.search-container {
-  flex: 1 1 30%;
+  flex: 1 1 40%;
   margin: 20px 20px 0 8px;
 }
 
@@ -61,37 +61,40 @@ body {
 
 .topnav-image input {
   padding: 10px;
-  border: 1px solid grey;
+  border: 1px solid #b8860b;
   width: 80%;
 }
 
 .topnav-image button {
   padding: 8px;
-  border: 1px solid grey;
+  border: 1px solid #b8860b;
   margin: 0 10px;
   cursor: pointer;
-  background-color: #fff;
+  background-color: #b8860b;
   font-family: "Noto Sans Symbols";
   font-size: 0.9rem;
+  color: #fff;
 }
 
 .topnav-image .search {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.9rem;
 }
 
-.topnav .topnav-image span {
+.topnav .topnav-image span#wishheart-pages {
   text-align: center;
   font-size: 38px;
-  color: #ddd7d7;
+  color: #b8860b;
   cursor: pointer;
 }
 
 .topnav-image button#send-wish-list-pages {
   transform: translateY(10px);
+  color: #b8860b;
 }
 
 .topnav-image .search:hover {
-  background-color: #270352;
+  background-color: #000;
   color: #fff;
 }
 
@@ -194,7 +197,7 @@ a.burger-icon {
   padding: 1.2rem;
   font-size: 2rem;
   text-decoration: none;
-  color: #000;
+  color: #b8860b;
   cursor: pointer;
 }
 
@@ -331,6 +334,7 @@ p.close-slide-menu {
     padding: 12px 16px;
     flex: 1 1 70%;
     margin-right: 10px;
+    border: 1px solid #b8860b;
   }
 
   .topnav-search-mobile button.search {
@@ -340,10 +344,13 @@ p.close-slide-menu {
     outline: none;
     cursor: pointer;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    background-color: #b8860b;
+    font-size: 0.9rem;
   }
 
   .topnav-search-mobile button.search:hover {
-    background-color: #270352;
+    background-color: #000;
     color: #fff;
   }
 
@@ -351,7 +358,7 @@ p.close-slide-menu {
     border: none;
     outline: none;
     background-color: #fff;
-    color: #8d8989;
+    color: #b8860b;
     transform: translateY(-18px);
     cursor: pointer;
   }
@@ -382,8 +389,15 @@ p.close-slide-menu {
     padding: 6px 9px;
   }
 
+  .topnav-search-mobile .mobile-search-form .search-input {
+    width: 70%;
+    padding: 6px 9px;
+    margin: 0 15px;
+  }
+
   .topnav-search-mobile .mobile-search-form .search {
     padding: 8px 9px;
+    font-size: 0.9rem;
   }
 }
 
@@ -417,8 +431,14 @@ p.close-slide-menu {
     padding: 8px 9px;
   }
 
+  .topnav-search-mobile .mobile-search-form .search-input {
+    width: 70%;
+    padding: 6px 9px;
+    margin: 0 15px;
+  }
+
   .mobile-nav-menu .topnav-search-mobile .search-container button.search {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     padding: 13px 9px;
   }
 }
@@ -426,15 +446,13 @@ p.close-slide-menu {
 @media screen and (max-width: 599px) {
   .topnav-search-mobile .search-container input.mobile-search-input {
     padding: 4px 3px;
-    flex: 1 1 65%;
-  }
-
-  .mobile-nav-menu .search-container {
+    flex: 1 1 80%;
     width: 80%;
+    border: 1px solid #b8860b;
   }
 
   .mobile-nav-menu .form-wishlist {
-    width: 20%;
+    width: 15%;
   }
 
   .topnav-search-mobile .form-wishlist button#send-wish-list-pages {
@@ -442,9 +460,9 @@ p.close-slide-menu {
   }
 
   .mobile-nav-menu .topnav-search-mobile .search-container button.search {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     padding: 12px 9px;
-    margin-left: 5px;
+    margin-left: 3px;
   }
   .mobile-nav-menu .topnav-search-mobile button#send-wish-list-pages {
     font-family: "Noto Sans Symbols";
@@ -476,11 +494,7 @@ p.close-slide-menu {
   .topnav-search-mobile input.mobile-search-input {
     padding: 12px;
     flex: 1 1 70%;
-    margin-right: 5px;
-  }
-
-  .topnav-search-mobile button.search {
-    padding: 10px;
-    flex: 1 1 10%;
+    margin-right: 3px;
+    font-size: 0.65rem;
   }
 }
