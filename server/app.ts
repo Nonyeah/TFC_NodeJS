@@ -1064,7 +1064,6 @@ app.get("/wishlist", async (req: Request, res: Response) => {
 
 app.post("/wishlist", async (req: Request, res: Response) => {
   let connection: any;
-  console.log(req.body);
   let placeholders: string;
   const wishlistItems: string[] | string | undefined = req.body.mywish;
   if (!wishlistItems) return res.render("wishlist-empty");
@@ -1092,11 +1091,8 @@ app.post("/wishlist", async (req: Request, res: Response) => {
         wishlistItems,
       );
 
-      const [myWishlistNewArrivals]: [RowDataPacket[]] =
-        await connection.execute(
-          `SELECT * FROM newarrivals WHERE ROCformName IN (${placeholders})`,
-          wishlistItems,
-        );
+     
+  
 
       const [myWishlistMonvatoo]: [RowDataPacket[]] = await connection.execute(
         `SELECT * FROM monvatoo WHERE ROCformName IN (${placeholders})`,
@@ -1122,7 +1118,6 @@ app.post("/wishlist", async (req: Request, res: Response) => {
         ...myWishlistLeather,
         ...myWishlistVegan,
         ...myWishlistClothing,
-        ...myWishlistNewArrivals,
         ...myWishlistlatelita,
         ...myWishlistMonvatoo,
         ...myWishlistevb,

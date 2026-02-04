@@ -18,13 +18,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= metaData[0].productName %></title>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    
     <meta
       name="description"
       content="<%= metaData[0].minorProductDescription %>"
     />
     <meta name="keywords" content="<%= metaData[0].keywords %>" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
     <meta name="robots" content="index,follow" />
 
     <meta name="referrer" content="no-referrer-when-downgrade" />
@@ -49,6 +49,7 @@
     <link rel="stylesheet" href="/static/css/products.css" />
     <link rel="stylesheet" href="/static/css/footer.css" />
     <link rel="stylesheet" href="/static/css/pages.css" />
+    <link rel="stylesheet" href="/static/css/wishlist.css" />
     <link rel="stylesheet" href="/static/css/showcase.css" />
     <link rel="stylesheet" href="/static/css/roc_stylesheet.css" />
   </head>
@@ -275,7 +276,7 @@
         <div class="search-container">
           <form class="mobile-search-form" action="/search" method="get">
             <input
-              class="search-input"
+              class="mobile-search-input"
               name="search"
               type="search"
               maxlength="60"
@@ -290,6 +291,7 @@
         
       </div>
     </div>
+    
     <div class="mobile-links-container">
       <p class="close-slide-menu">&#9932;</p>
       <ul class="parent-ul">
