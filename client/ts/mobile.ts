@@ -1,9 +1,14 @@
 export const mobileListInit = () => {
+  const parentUl = document.querySelector(".parent-ul")! as HTMLUListElement;
   let prevOpenUl: HTMLUListElement | undefined;
   let currentOpenUl: HTMLUListElement;
   let currentLiTarget: HTMLLIElement;
   let previousLiTarget: HTMLLIElement | undefined;
-  const parentUl = document.querySelector(".parent-ul")!;
+  
+  if (!parentUl || parentUl.dataset.initialized === "true") return;
+
+  // Mark it so it won't attach a second time
+  parentUl.dataset.initialized = "true";
 
   const differentListOpen = () => {
     prevOpenUl!.style.display = "none";
@@ -15,11 +20,10 @@ export const mobileListInit = () => {
   };
 
   const sameListOpen = () => {
-    prevOpenUl!.style.display == "block"
+    prevOpenUl!.style.display === "block"
       ? (prevOpenUl!.style.display = "none")
       : (prevOpenUl!.style.display = "block");
     currentLiTarget.classList.toggle("open");
-    previousLiTarget = currentLiTarget;
   };
 
   const defaultListOpen = () => {
@@ -33,13 +37,15 @@ export const mobileListInit = () => {
     const target = e.target as HTMLElement;
     currentLiTarget = target.closest("li")!;
     currentOpenUl = currentLiTarget.firstElementChild as HTMLUListElement;
+    if(currentOpenUl instanceof HTMLUListElement){
     if (prevOpenUl && prevOpenUl != currentOpenUl) {
       differentListOpen();
-    } else if (prevOpenUl && prevOpenUl == currentOpenUl) {
+    } else if (prevOpenUl && prevOpenUl === currentOpenUl) {
       sameListOpen();
     } else {
       defaultListOpen();
     }
+  }
   };
 
   parentUl.addEventListener("click", openMobileNav);

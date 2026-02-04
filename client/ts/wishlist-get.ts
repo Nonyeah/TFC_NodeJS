@@ -26,8 +26,7 @@ function createWishItemsForGetRequest() {
     }
   }
 
-  console.log(productDataArray);
-
+ 
   productDataArray.forEach((product) => {
     const productContainer = document.createElement("div") as HTMLDivElement;
     productContainer.className = "wish-item";

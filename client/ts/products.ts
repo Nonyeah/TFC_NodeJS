@@ -316,6 +316,8 @@ const isWishlist: HTMLDivElement | undefined = document.querySelector(
   ".wishlist-container"
 ) as HTMLDivElement | undefined;
 
+
+
 //for product pages only
 if (!isWishlist) {
   displayFirstTab();
