@@ -67,14 +67,24 @@ function showShowcaseModalInit() {
     modalContainer.classList.add("showcase-modal-visible");
   }
 
+  function showShowcaseModalThumb(this: HTMLImageElement) {
+    modalImage.src = this.src;
+    if (modalContainer.classList.contains("showcase-modal-visible")) return;
+    modalContainer.classList.add("showcase-modal-visible");
+  }
+
   function closeModal() {
     modalContainer.classList.remove("showcase-modal-visible");
     i = 0;
   }
 
   function navigateRight() {
-    if (i >= len - 1) return;
-    modalImage.src = collection[++i].src;
+    if (i >= len) {
+      i = len - 1;
+      return;
+    } 
+    if( i === len - 1)  modalImage.src = collection[--i].src;
+    modalImage.src = collection[i++].src;
   }
 
   function navigateLeft() {
@@ -82,6 +92,7 @@ function showShowcaseModalInit() {
       i = 0;
       return;
     }
+    if( i === 0 ) modalImage.src = collection[++i].src;
     modalImage.src = collection[i--].src;
   }
 
@@ -104,6 +115,10 @@ function showShowcaseModalInit() {
       modalImage.src = collection[i++].src;
     }
   };
+
+  for (const elem of thumbContainer.querySelectorAll("img")) {
+    elem.addEventListener("click", showShowcaseModalThumb);
+  }
 
   leftArrow.addEventListener("click", navigateLeft);
   rightArrow.addEventListener("click", navigateRight);

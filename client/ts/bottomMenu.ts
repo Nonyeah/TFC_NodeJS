@@ -6,7 +6,6 @@ import {
   hideNavBlock,
   slideNavMenu,
 } from "./header";
-//import { toggleBottomTabInit } from "./footer";
 
 
 for (let elem of topNavLinks) {
@@ -18,6 +17,5 @@ for (let elem of navblocks) {
 };
 
 slideNavMenu();
-//toggleBottomTabInit();
 mobileListInit();
 

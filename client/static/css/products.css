@@ -31,7 +31,7 @@ p.menu-nav span {
 .minor-nav-wishlist form span {
   font-size: 30px;
   margin: 0 5px;
-  color: #B8860B;
+  color: #ad933b;
 }
 
 p.menu-nav a {
@@ -68,7 +68,7 @@ span.wishlist {
   width: auto;
   height: auto;
   padding: 16px;
-  background-color: #B8860B;
+  background-color: #ad933b;;
   color: #fff;                             
   font-family: Verdana, garamond, Geneva, Tahoma, sans-serif, sans-serif;
   font-size: 0.8rem;
@@ -161,7 +161,7 @@ h4.product-brand {
 .description-container p.product-name,
 .description-container p.product-price {
   font-size: 20px;
-  line-height: 60%;
+  
 }
 
 .stock {
@@ -181,12 +181,12 @@ h4.product-brand {
 .variant-container .mens-variant {
   display: flex;
   margin: 20px 0;
-  justify-content: center;
+  
 }
 
 .variant-container {
   display: flex;
-  justify-content: center;
+  justify-content: left;
 }
 .variant-container span {
   font-family: Verdana, garamond, Geneva, Tahoma, sans-serif, sans-serif;
@@ -273,7 +273,7 @@ h4.product-brand {
   font-size: 1rem;
   position: absolute;
   right: 10px;
-  color: #B8860B;
+  color: #ad933b;
   font-size: 30px
 }
 
@@ -283,7 +283,7 @@ h4.product-brand {
   position: absolute;
   right: 10px;
   font-weight: bold;
-  color: #B8860B;
+  color: #ad933b;
   font-size: 30px;
 }
 
@@ -305,7 +305,7 @@ p.similar-products {
   font-family: "Two Cent MT", arial, sans-serif;
   font-size: 0.6rem;
   text-align: left;
-  border: 1px solid #B8860B;
+  border: 1px solid #ad933b;
   border-radius: 10px;
   padding: 10px;
   display: inline-block;
@@ -346,7 +346,7 @@ p.similar-products {
 
 .tab-container .hidden-content p {
   padding: 16px 10px;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   line-height: 22px;
   text-align: justify;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
@@ -470,7 +470,9 @@ p.price {
 
 .bottom-pic-banners a {
   text-decoration: none;
-  color: black;
+  color: #fff;
+  
+
 }
 
 .bottom-pic-banners div {
@@ -481,18 +483,19 @@ p.price {
 
 .bottom-pic-banners p {
   color: #fff;
-  text-transform: uppercase;
-  font-family: "Two Cent MT", sans-serif;
-  font-size: 1.6rem;
+  text-transform: capitalize;
+  font-family:  Georgia, Times, 'Times New Roman', serif;
   font-weight: bold;
+  font-size: 1.6rem;
 }
 
 .bottom-pic-banners button {
-  padding: 11px 18px;
+  padding: 16px 22px;
   border: none;
   outline: none;
-  background-color: #fff;
+  background-color: #ad933b;
   text-transform: uppercase;
+                                                  
 }
 
 .bottom-pic-banners img {
@@ -577,8 +580,8 @@ p.price {
     margin: 16px;
   }
 
-  .hidden-content p {
-    font-size: 0.75rem;
+  .tab-container .hidden-content p {
+    font-size: 0.8rem;
     line-height: 22px;
   }
 
@@ -678,6 +681,10 @@ p.price {
     text-align: center;
   }
 
+  .variant-container{
+  justify-content: center;
+  }
+
   #variantcontainer {
     font-family: Verdana, garamond, Geneva, Tahoma, sans-serif, sans-serif;
     font-size: 0.77rem;
@@ -693,8 +700,8 @@ p.price {
     font-size: 0.85rem;
   }
 
-  .tab-container p {
-    font-size: 0.7rem;
+  .tab-container .hidden-content p {
+    font-size: 0.8rem;
   }
 
   .more-info li a {
@@ -787,6 +794,10 @@ p.price {
     margin: 10px auto;
     display: block;
   }
+
+  .bottom-pic-banners p{
+    font-size: 1.4rem;
+  }
   p.name {
     display: none;
   }
@@ -838,6 +849,9 @@ p.price {
     display: block;
   }
 
+  .bottom-pic-banners button{
+    padding: 11px 16px;
+  }
   .description-container button#add-to-shopping {
     width: 80%;
     font-size: 14px;
@@ -912,7 +926,7 @@ p.price {
     font-family: "Two Cent MT", arial, sans-serif;
     font-size: 0.6rem;
     text-align: left;
-    border: 1px solid #B8860B;
+    border: 1px solid #ad933b;
     border-radius: 10px;
     padding: 5px;
     display: inline-block;
@@ -934,6 +948,10 @@ p.price {
   .bottom-pic-banners img {
     width: 90%;
     height: auto;
+  }
+
+    .bottom-pic-banners p{
+    font-size: 1rem;
   }
 }
 

@@ -16,6 +16,7 @@ for (let elem of navblocks) {
   elem.addEventListener("mouseleave", hideNavBlock);
 }
 
+
 function createWishItemsForGetRequest() {
   const wishlistcontainer = document.querySelector(".wishlist-container");
   const productDataArray = [];
@@ -24,9 +25,7 @@ function createWishItemsForGetRequest() {
       const parsedObject = JSON.parse(localStorage[key]);
       productDataArray.push(parsedObject);
     }
-  }
-
- 
+  };
   productDataArray.forEach((product) => {
     const productContainer = document.createElement("div") as HTMLDivElement;
     productContainer.className = "wish-item";

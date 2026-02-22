@@ -50,5 +50,3 @@ export const mobileListInit = () => {
 
   parentUl.addEventListener("click", openMobileNav);
 };
-
-

@@ -61,16 +61,16 @@ body {
 
 .topnav-image input {
   padding: 10px;
-  border: 1px solid #b8860b;
+  border: 1px solid #ad933b;
   width: 80%;
 }
 
 .topnav-image button {
   padding: 8px;
-  border: 1px solid #b8860b;
+  border: 1px solid #ad933b;
   margin: 0 10px;
   cursor: pointer;
-  background-color: #b8860b;
+  background-color: #ad933b;
   font-family: "Noto Sans Symbols";
   font-size: 0.9rem;
   color: #fff;
@@ -84,13 +84,13 @@ body {
 .topnav .topnav-image span#wishheart-pages {
   text-align: center;
   font-size: 38px;
-  color: #b8860b;
+  color: #ad933b;
   cursor: pointer;
 }
 
 .topnav-image button#send-wish-list-pages {
   transform: translateY(10px);
-  color: #b8860b;
+  color: #ad933b;
 }
 
 .topnav-image .search:hover {
@@ -197,7 +197,7 @@ a.burger-icon {
   padding: 1.2rem;
   font-size: 2rem;
   text-decoration: none;
-  color: #b8860b;
+  color: #ad933b;
   cursor: pointer;
 }
 
@@ -334,7 +334,7 @@ p.close-slide-menu {
     padding: 12px 16px;
     flex: 1 1 70%;
     margin-right: 10px;
-    border: 1px solid #b8860b;
+    border: 1px solid #ad933b;
   }
 
   .topnav-search-mobile button.search {
@@ -345,7 +345,7 @@ p.close-slide-menu {
     cursor: pointer;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     color: #fff;
-    background-color: #b8860b;
+    background-color: #ad933b;
     font-size: 0.9rem;
   }
 
@@ -358,7 +358,7 @@ p.close-slide-menu {
     border: none;
     outline: none;
     background-color: #fff;
-    color: #b8860b;
+    color: #ad933b;
     transform: translateY(-18px);
     cursor: pointer;
   }
@@ -447,12 +447,15 @@ p.close-slide-menu {
   .topnav-search-mobile .search-container input.mobile-search-input {
     padding: 4px 3px;
     flex: 1 1 80%;
-    width: 80%;
-    border: 1px solid #b8860b;
+     width: 80%;
+    border: 1px solid #ad933b;
   }
+
+  
 
   .mobile-nav-menu .form-wishlist {
     width: 15%;
+
   }
 
   .topnav-search-mobile .form-wishlist button#send-wish-list-pages {
@@ -483,6 +486,8 @@ p.close-slide-menu {
     height: auto;
     margin: 10px auto;
   }
+
+
 }
 
 @media screen and (max-width: 350px) {
@@ -497,4 +502,6 @@ p.close-slide-menu {
     margin-right: 3px;
     font-size: 0.65rem;
   }
+
+  
 }

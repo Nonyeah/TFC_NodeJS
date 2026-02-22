@@ -18,20 +18,10 @@ export function showNavBlock(e: Event) {
   }
 }
 
-
-//initialisation not really required here since showNavBlock is exported
-for (let elem of topNavLinks) {
-  elem.addEventListener("click", showNavBlock);
-}
-
 export function hideNavBlock(this: HTMLElement) {
   if (this.style.display == "block") this.style.display = "";
 }
 
-//initialisation not really required here since hideNavBlock is exported
-for (let elem of navblocks) {
-  elem.addEventListener("mouseleave", hideNavBlock);
-}
 
 export const slideNavMenu = () => {
   const burger = document.querySelector("a.burger-icon")! as HTMLAnchorElement;

@@ -93,7 +93,7 @@ app.get("/", async (req: Request, res: Response) => {
       return res.status(500).render("error", {
         type: "Home Page",
         message:
-          "Well that's embarrassing, we can't find what you are looking for right now!"
+          "Well that's embarrassing, we can't find what you are looking for right now!",
       });
     }
 
@@ -246,7 +246,7 @@ app.get("/bags/:category", async (req: Request, res: Response) => {
         return res.status(404).render("error", {
           type: "Bag Lookup",
           message:
-            "Oh well that's embarrassing. We can't find what you're looking for right now." 
+            "Oh well that's embarrassing. We can't find what you're looking for right now.",
         });
       }
       res.render("bags", {
@@ -687,70 +687,86 @@ app.get("/clothing/{:productUrl}", async (req: Request, res: Response) => {
   try {
     connection = await pool.getConnection();
     let urlPath = req.params.productUrl;
-    if (urlPath) urlPath = urlPath.toLowerCase();
-    if (
-      urlPath === "dresses" ||
-      urlPath === "outwear" ||
-      urlPath === "jumpsuits"
-    ) {
-      const [clothingType] = await connection.execute(
-        "SELECT * FROM clothing where productCategory = ?",
-        [urlPath],
-      );
+    if (urlPath) {
+      urlPath = urlPath.toLowerCase();
+      if (
+        urlPath === "dresses" ||
+        urlPath === "outwear" ||
+        urlPath === "jumpsuits"
+      ) {
+        const [clothingType]: [RowDataPacket[]] = await connection.execute(
+          "SELECT * FROM clothing where productCategory = ?",
+          [urlPath],
+        );
 
-      if (!clothingType.length) {
-        return res.render("error", {
-          type: "Clothing Search",
-          message: `Well that's embarrassing, we couldn't find any ${urlPath}.`,
+        if (!clothingType.length) {
+          return res.render("error", {
+            type: "Clothing Search",
+            message: `Well that's embarrassing, we couldn't find any ${urlPath}.`,
+          });
+        } else {
+          return res.render("clothing", {
+            products: clothingType,
+            header: urlPath,
+          });
+        }
+      } else if (urlPath === "allclothing") {
+        const [allClothing]: [RowDataPacket[]] = await connection.execute(
+          "SELECT * FROM clothing",
+        );
+
+        if (!allClothing.length) {
+          return res.render("error", {
+            type: "Clothing Search",
+            message: `Well that's embarrassing, we couldn't find any of the clothes you were looking for.`,
+          });
+        }
+        return res.render("clothing", {
+          products: allClothing,
+          header: "all clothing",
         });
       } else {
-        return res.render("clothing", {
-          products: clothingType,
-          header: urlPath,
-        });
-      }
-    } else if (urlPath === "allclothing") {
-      const [allClothing] = await connection.execute("SELECT * FROM clothing");
+        //CFA for clothing product pages
+        const [clothing]: [RowDataPacket[]] = await connection.execute(
+          "SELECT * FROM clothing WHERE urlName = ?",
+          [urlPath],
+        );
 
-      if (!allClothing.length) {
-        return res.render("error", {
-          type: "Clothing Searcg",
-          message: `Well that's embarrassing, we couldn't find any of the clothes you were looking for.`,
-        });
+        //if product exists query database for similar types of products
+        if (clothing.length) {
+          const similarItems: Promise<[RowDataPacket[], FieldPacket[]]> =
+            await connection.execute(
+              "SELECT * FROM clothing WHERE productCategory = ?",
+              [clothing[0].productCategory],
+            );
+
+          const [sameTypes] = await similarItems;
+
+          if (!sameTypes.length) {
+            return res.render("error", {
+              type: "Clothing Search",
+              message: "Ahhh, we can't find that garmet.",
+            });
+          }
+          if (sameTypes.length) {
+            return res.render("clothing-products", {
+              clothingItem: clothing,
+              suggestions: sameTypes,
+            });
+          }
+        } else {
+          return res.render("error", {
+            type: "Clothing Search",
+            message: "Ahhh shucks, we couldn't find that particular clothing product.",
+          });
+        }
       }
+    } else {
+      const [allClothing] = await connection.execute("SELECT * FROM clothing");
       return res.render("clothing", {
         products: allClothing,
         header: "all clothing",
       });
-    } else {
-      //CFA for clothing product pages
-      const [clothing] = await connection.execute(
-        "SELECT * FROM clothing WHERE urlName = ?",
-        [urlPath],
-      );
-
-      let similarItems: Promise<[RowDataPacket[], FieldPacket[]]>;
-
-      //if product exists query database for similar types of products
-      if (clothing.length) {
-        similarItems = await connection.execute(
-          "SELECT * FROM clothing WHERE productCategory = ?",
-          [clothing[0].productCategory],
-        );
-
-        const [sameTypes] = await similarItems;
-        if (sameTypes.length) {
-          return res.render("clothing-products", {
-            clothingItem: clothing,
-            suggestions: sameTypes,
-          });
-        }
-      } else {
-        return res.render("error", {
-          type: "Clothing Search",
-          message: "Ahhh, we can't find that garmet.",
-        });
-      }
     }
   } catch (err) {
     console.log(err);
@@ -766,8 +782,7 @@ app.get("/brands/:designer", async (req: Request, res: Response) => {
     if (!designer) {
       return res.status(404).render("error", {
         type: "Designer Search",
-        message:
-          "Ooops! We can't find the designer .",
+        message: "Ooops! We can't find the designer .",
       });
     }
     connection = await pool.getConnection();
@@ -786,8 +801,7 @@ app.get("/brands/:designer", async (req: Request, res: Response) => {
   } catch (err) {
     return res.status(500).render("error", {
       type: "Designer Search",
-      message:
-        "Oops could not find requested brand due to a server error.",
+      message: "Oops could not find requested brand due to a server error.",
     });
   } finally {
     if (connection) connection.release();
@@ -812,8 +826,7 @@ app.get("/new-arrivals{/:productUrl}", async (req: Request, res: Response) => {
       } else {
         return res.render("error", {
           type: "New Arrivals",
-          message:
-            "Ah shucks! We have no new products to show you at present.",
+          message: "Ah shucks! We have no new products to show you at present.",
         });
       }
     } else {
@@ -919,7 +932,8 @@ app.get(
         } else {
           res.status(404).render("error", {
             type: "Showcase",
-            message: "Well that's embarrassing, we couldn't find the showcase page you were looking for.",
+            message:
+              "Well that's embarrassing, we couldn't find the showcase page you were looking for.",
           });
         }
       } else {
@@ -962,7 +976,6 @@ app.get("/cancellation-form", async (req: Request, res: Response) => {
 
 app.get("/search", async (req: Request, res: Response) => {
   const search: string = (req.query.search as string).toLowerCase().trim();
-  console.log(search);
   const pattern = /[a-z\s0-9]+/;
   const match = pattern.test(search);
   if (!match || search.length > 60) {
@@ -987,13 +1000,11 @@ app.get("/search", async (req: Request, res: Response) => {
       }
     }
     queryString += wildcard;
-    console.log(queryString);
     return queryString;
   };
 
   const SQLCommand = () => {
     const parsedQueryStringArray = parseQueryString().split(" ");
-    console.log(parsedQueryStringArray);
 
     let i = 0;
     const ANDIterations: number = parsedQueryStringArray.length - 1;
@@ -1090,9 +1101,6 @@ app.post("/wishlist", async (req: Request, res: Response) => {
         `SELECT * FROM clothing WHERE ROCformName IN (${placeholders})`,
         wishlistItems,
       );
-
-     
-  
 
       const [myWishlistMonvatoo]: [RowDataPacket[]] = await connection.execute(
         `SELECT * FROM monvatoo WHERE ROCformName IN (${placeholders})`,
@@ -1285,8 +1293,8 @@ app.post("/subscribe", (req: Request, res: Response) => {
 app.use((req: Request, res: Response) => {
   res.status(404).render("error", {
     type: "404 Blooper",
-    message: "Oh fiddlesticks! We can't find the page you're looking for"
-  }); 
+    message: "Oh fiddlesticks! We can't find the page you're looking for",
+  });
 });
 
 app.listen(port, () => {

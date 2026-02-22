@@ -51,6 +51,7 @@ h3.header-title {
   border-bottom: 0.4px solid #d3d3d3;
   margin: 20px 8px;
   background-color: #fff;
+  height: 40px
 }
 
 .sort-menu-mobile-container {
@@ -82,9 +83,11 @@ h3.header-title {
 
 .sort-menu-categories {
   display: flex;
-  width: 60%;
+  width: 70%;
   align-items: center;
   cursor: pointer;
+ 
+
 }
 
 .colour:hover,
@@ -96,23 +99,23 @@ h3.header-title {
 
 .sort-menu-price {
   display: flex;
-  width: 40%;
+  width: 30%;
   justify-content: right;
-  cursor:pointer
+  cursor:pointer;
+  align-items: center;
 }
 
 .sort-menu-categories div {
   margin: 0 15px;
-  
   padding: 0 8px;
   text-align: center;
-  
+  width: 30%; 
 }
 .sort-menu-categories div li{
   text-align:left
 }
 .sort-menu-price div {
-  width: 40%;
+  width: 80%;
   margin: 0 20px;
 }
 
@@ -207,7 +210,7 @@ h3.header-title {
   cursor: pointer;
   text-transform: capitalize;
   font-family: Verdana, garamond, Geneva, Tahoma, sans-serif, sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   text-align: center;
   color: #484848;
 }
@@ -235,7 +238,7 @@ a.clear-filters {
 }
 
 .top-label span {
-  color: #B8860b;
+  color: #ad933b;
   font-size: 30px;
   cursor: pointer;
   position: absolute;
