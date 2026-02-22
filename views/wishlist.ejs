@@ -4,7 +4,7 @@
 
 <div class="wishlist-container">
 
-  <% wishItems.forEach(wish => { if(wish.productType.toLowerCase() === "bag") {%>
+  <% wishItems.forEach( wish => { if (wish.productType.toLowerCase() === "bag") { %>
 
   <div class="wish-item">
     <form name="<%= wish.ROCformName %>" class="remove-wish-item">
@@ -16,9 +16,11 @@
         alt="<%= wish.productCategory %>"
         border="0"
     /></a>
-    <p class="product-brand"><%= wish.brand %></p>
+
+
+
     <p class="product-name"><%= wish.productName %></p>
-    <p class="product-price" style="margin-top:-15px;">£<%= wish.productPrice %></p>
+    <p class="product-price" style="margin-top:39px;">£<%= wish.productPrice %></p>
 
     <form
       action="https://www.romancart.com/cart.asp"
@@ -32,6 +34,7 @@
       <input type="hidden" name="itemcode" value="<%= wish.ROCItemCode %>" />
       <button type="submit" class="move-to-cart">move to cart</button>
     </form>
+ 
   </div>
   <% } else if (wish.productType.toLowerCase() === "jewellery") { %>
   <div class="wish-item">
@@ -44,7 +47,8 @@
         alt="<%= wish.productCategory %>"
         border="0"
     /></a>
-    <p class="product-brand"><%= wish.brand %></p>
+   
+    
     <p class="product-name"><%= wish.productName %></p>
     <p class="product-price">£<%= wish.productPrice %></p>
 
@@ -58,8 +62,101 @@
       <input type="hidden" name="minicart" value="yes" />
       <input type="hidden" name="storeid" value="60667" />
       <input type="hidden" name="itemcode" value="<%= wish.ROCItemCode %>" />
+
+ <% if(wish.ladies && wish.men) { %>
+      <div class="variant-container">
+        <div class="ladies-variant">
+          <span>Ladies Size</span>
+          <select name="itemname3">
+            <option value="<%= wish.size1 %>"><%= wish.size1 %></option>
+            <option value="<%= wish.size2 %>"><%= wish.size2 %></option>
+            <option value="<%= wish.size3 %>"><%= wish.size3 %></option>
+            <option value="<%= wish.size4 %>"><%= wish.size4 %></option>
+            <option value="<%= wish.size5 %>"><%= wish.size5 %></option>
+            <option value="<%= wish.size6 %>"><%= wish.size6 %></option>
+            <option value="<%= wish.size7 %>"><%= wish.size7 %></option>
+            <option value="<%= wish.size8 %>"><%= wish.size8 %></option>
+          </select>
+        </div>
+        <div class="mens-variant">
+          <span>Mens Size</span>
+          <select name="itemname2">
+            <option value="<%= wish.size9 %>"><%= wish.size9 %></option>
+            <option value="<%= wish.size10 %>"><%= wish.size10 %></option>
+            <option value="<%= wish.size11 %>"><%= wish.size11 %></option>
+            <option value="<%= wish.size12 %>"><%= wish.size12 %></option>
+            <option value="<%= wish.size13 %>"><%= wish.size13 %></option>
+            <option value="<%= wish.size14 %>"><%= wish.size14 %></option>
+            <option value="<%= wish.size15 %>"><%= Number(wish.size15).toFixed(1) %></option>
+            <option value="<%= wish.size16 %>"><%= Number(wish.size16).toFixed(1) %></option>
+          </select>
+        </div>
+      </div>
+      <% } else if(wish.ladies && wish.size2 && !wish.mens) { %>
+      <div class="variant-container">
+        <div class="ladies-variant">
+          <span>Ladies Size</span>
+          <select name="itemname2">
+            <option value="<%= wish.size1 %>"><%= wish.size1 %></option>
+            <option value="<%= wish.size2 %>"><%= wish.size2 %></option>
+
+            <option value="<%= wish.size3 %>"><%= wish.size3 %></option>
+
+            <option value="<%= wish.size4 %>"><%= wish.size4 %></option>
+
+            <option value="<%= wish.size5 %>"><%= wish.size5 %></option>
+
+            <option value="<%= wish.size6 %>"><%= wish.size6 %></option>
+
+            <option value="<%= wish.size7 %>"><%= wish.size7 %></option>
+
+            <option value="<%= wish.size8 %>"><%= wish.size8 %></option>
+          </select>
+        </div>
+      </div>
+      <% } else if(wish.ladies && !wish.size2) { %>
+
+      <div class="variant-container">
+        <div class="ladies-variant">
+          <span>Ladies sizes</span>
+          <select name="itemname2">
+            <option value="<%= wish.size1 %>"><%= wish.size1 %></option>
+          </select>
+        </div>
+      </div>
+      <% } else  if(!wish.ladies && !wish.men) { %>
+        <p class="margin-adjustment" style="margin-top:39px"></p>
+       <% } else { %>
+
+      <div class="variant-container">
+        <div class="mens-variant">
+          <span>Mens Size</span>
+          <select name="itemname2">
+            <option value="<%= wish.size1 %>"><%= wish.size1 %></option>
+
+            <option value="<%= wish.size2 %>"><%= wish.size2 %></option>
+
+            <option value="<%= wish.size3 %>"><%= wish.size3 %></option>
+
+            <option value="<%= wish.size4 %>"><%= wish.size4 %></option>
+
+            <option value="<%= wish.size5 %>"><%= wish.size5 %></option>
+
+            <option value="<%= wish.size6 %>"><%= wish.size6 %></option>
+
+            <option value="<%= wish.size7 %>"><%= wish.size7 %></option>
+
+            <option value="<%= wish.size8 %>"><%= wish.size8 %></option>
+          </select>
+        </div>
+      </div>
+
+      <% } %>
+
+
       <button type="submit" class="move-to-cart">move to cart</button>
     </form>
+
   </div>
 
   <% } else { %>
@@ -73,7 +170,8 @@
         alt="<%= wish.productCategory %>"
         border="0"
     /></a>
-    <p class="product-brand"><%= wish.brand %></p>
+    
+    
     <p class="product-name"><%= wish.productName %></p>
     <p class="product-price">£<%= wish.productPrice %></p>
 
@@ -99,6 +197,7 @@
       </div>
       <button type="submit" class="move-to-cart">move to cart</button>
     </form>
+  
   </div>
   <% } }) %>
 </div>
@@ -127,7 +226,7 @@
 
 <script
   type="module"
-  src="/static/js/assets/products-BfD16MU5.js"
+  src="/static/js/assets/products-BgP3L3qg.js"
   defer
 ></script>
 
