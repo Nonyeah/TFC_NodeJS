@@ -1,21 +1,9 @@
 import {
-  navblocks,
-  showNavBlock,
-  topNavLinks,
-  hideNavBlock,
+  topNavInit,
   slideNavMenu,
 } from "./header";
 
 import { mobileListInit } from "./mobile";
-
-for (let elem of topNavLinks) {
-  elem.addEventListener("click", showNavBlock);
-}
-
-for (let elem of navblocks) {
-  elem.addEventListener("mouseleave", hideNavBlock);
-}
-
 
 function createWishItemsForGetRequest() {
   const wishlistcontainer = document.querySelector(".wishlist-container");
@@ -150,7 +138,7 @@ export function removeWishItemInit() {
   }
 }
 
-
+topNavInit();
 slideNavMenu();
 mobileListInit();
 createWishItemsForGetRequest();

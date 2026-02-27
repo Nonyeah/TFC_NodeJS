@@ -1,22 +1,10 @@
 //product page add to wishlist most of the functions in this module are exported into products.ts
 import {
-  navblocks,
-  showNavBlock,
-  topNavLinks,
-  hideNavBlock,
+  topNavInit,
   slideNavMenu,
 } from "./header";
 
 import { mobileListInit } from "./mobile";
-
-for (let elem of topNavLinks) {
-  elem.addEventListener("click", showNavBlock);
-}
-
-for (let elem of navblocks) {
-  elem.addEventListener("mouseleave", hideNavBlock);
-}
-
 
 export function wishlist() {
   const button: HTMLButtonElement | null = document.getElementById(
@@ -205,6 +193,7 @@ function continueShoppingInit() {
   if (back) back.addEventListener("click", continueShopping);
 }
 
+topNavInit();
 mobileListInit();
 slideNavMenu();
 

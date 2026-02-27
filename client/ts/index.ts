@@ -1,20 +1,10 @@
 import {
-  navblocks,
-  showNavBlock,
-  topNavLinks,
-  hideNavBlock,
   slideNavMenu,
+  topNavInit,
 } from "./header";
 
 import { mobileListInit } from "./mobile";
 
-for (let elem of topNavLinks) {
-  elem.addEventListener("click", showNavBlock);
-}
-
-for (let elem of navblocks) {
-  elem.addEventListener("mouseleave", hideNavBlock);
-}
 
 function rotateImagesInit() {
   const carouselContainer = document.querySelector(
@@ -52,3 +42,4 @@ function rotateImagesInit() {
 document.addEventListener("DOMContentLoaded", rotateImagesInit);
 document.addEventListener("DOMContentLoaded", slideNavMenu);
 document.addEventListener("DOMContentLoaded", mobileListInit);
+document.addEventListener("DOMContentLoaded", topNavInit);

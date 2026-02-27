@@ -1,10 +1,10 @@
-export const navblocks =
+export const navblocks: NodeListOf<HTMLDivElement> =
   document.querySelectorAll<HTMLDivElement>(".navigation-block");
-export const topNavLinks = document
+export const topNavLinks: NodeListOf<HTMLAnchorElement> = document
   .querySelector(".topnav")!
   .querySelectorAll("a");
 
-export function showNavBlock(e: Event) {
+export function showNavBlock(e: Event):void {
   const target = e.target as HTMLAnchorElement;
   const li = target.closest("li");
 
@@ -18,12 +18,22 @@ export function showNavBlock(e: Event) {
   }
 }
 
-export function hideNavBlock(this: HTMLElement) {
+export function hideNavBlock(this: HTMLElement) : void {
   if (this.style.display == "block") this.style.display = "";
 }
 
+export const topNavInit: () => void = () =>  {
+for (let elem of topNavLinks) {
+  elem.addEventListener("click", showNavBlock);
+}
 
-export const slideNavMenu = () => {
+for (let elem of navblocks) {
+  elem.addEventListener("mouseleave", hideNavBlock);
+} 
+};
+
+
+export const slideNavMenu: () => void = () => {
   const burger = document.querySelector("a.burger-icon")! as HTMLAnchorElement;
   const linksContainer = document.querySelector(
     ".mobile-links-container"

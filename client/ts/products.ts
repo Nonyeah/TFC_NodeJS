@@ -1,8 +1,6 @@
 import {
-  navblocks,
-  showNavBlock,
-  topNavLinks,
-  hideNavBlock,
+ 
+  topNavInit,
   slideNavMenu,
 } from "./header";
 
@@ -15,14 +13,6 @@ import {
 
 } from "./wishlist";
 import { format } from "path";
-
-for (let elem of topNavLinks) {
-  elem.addEventListener("click", showNavBlock);
-}
-
-for (let elem of navblocks) {
-  elem.addEventListener("mouseleave", hideNavBlock);
-}
 
 function displayFirstTab() {
   const hiddenContent =
@@ -320,6 +310,7 @@ const isWishlist: HTMLDivElement | undefined = document.querySelector(
 
 //for product pages only
 if (!isWishlist) {
+  topNavInit();
   displayFirstTab();
   youMayLike();
   openTabs();
@@ -332,6 +323,7 @@ if (!isWishlist) {
   
 } else {
   //for wishlist page only
+  topNavInit();
   slideNavMenu();
   mobileListInit();
   wishlist();

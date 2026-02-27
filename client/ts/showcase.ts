@@ -1,33 +1,19 @@
 import {
-  showNavBlock,
-  slideNavMenu,
-  topNavLinks,
-  navblocks,
+  
+  topNavInit,
+   slideNavMenu,
 } from "./header.ts";
 import { mobileListInit } from "./mobile";
-//import { toggleBottomTabInit, showTextInit } from "./footer.ts";
-
-for (let elem of topNavLinks) {
-  elem.addEventListener("click", showNavBlock);
-}
-
-export function hideNavBlock(this: HTMLElement) {
-  if (this.style.display == "block") this.style.display = "";
-}
-
-for (let elem of navblocks) {
-  elem.addEventListener("mouseleave", hideNavBlock);
-}
 
 function displayThumbInit() {
   const parentDiv = document.querySelector(
-    ".thumb-images-container"
+    ".thumb-images-container",
   ) as HTMLDivElement;
 
   const showThumb = (e: Event) => {
     e.preventDefault();
     const largeImage = document.querySelector(
-      ".large-image"
+      ".large-image",
     ) as HTMLImageElement;
     const target = (e.target as HTMLElement).closest("img");
     if (target) {
@@ -40,22 +26,22 @@ function displayThumbInit() {
 
 function showShowcaseModalInit() {
   const modalContainer = document.querySelector(
-    ".showcase-modal"
+    ".showcase-modal",
   ) as HTMLDivElement;
   const largeImage = document.querySelector(".large-image") as HTMLImageElement;
   const modalImage = document.querySelector(".modal-image") as HTMLImageElement;
   const close = document.querySelector(".close-modal") as HTMLParagraphElement;
   const leftArrow = document.querySelector(
-    ".left-arrow"
+    ".left-arrow",
   ) as HTMLParagraphElement;
   const rightArrow = document.querySelector(
-    ".right-arrow"
+    ".right-arrow",
   ) as HTMLParagraphElement;
   let i: number = 0;
   let len: number;
   let collection: NodeListOf<HTMLImageElement>;
   const thumbContainer = document.querySelector(
-    ".thumb-images-container"
+    ".thumb-images-container",
   ) as HTMLDivElement;
   if (thumbContainer) {
     collection = thumbContainer.querySelectorAll("img");
@@ -68,6 +54,7 @@ function showShowcaseModalInit() {
   }
 
   function showShowcaseModalThumb(this: HTMLImageElement) {
+    if(window.innerWidth > 1000) return;
     modalImage.src = this.src;
     if (modalContainer.classList.contains("showcase-modal-visible")) return;
     modalContainer.classList.add("showcase-modal-visible");
@@ -82,8 +69,8 @@ function showShowcaseModalInit() {
     if (i >= len) {
       i = len - 1;
       return;
-    } 
-    if( i === len - 1)  modalImage.src = collection[--i].src;
+    }
+    if (i === len - 1) modalImage.src = collection[--i].src;
     modalImage.src = collection[i++].src;
   }
 
@@ -92,7 +79,7 @@ function showShowcaseModalInit() {
       i = 0;
       return;
     }
-    if( i === 0 ) modalImage.src = collection[++i].src;
+    if (i === 0) modalImage.src = collection[++i].src;
     modalImage.src = collection[i--].src;
   }
 
@@ -129,14 +116,17 @@ function showShowcaseModalInit() {
 }
 
 const showcaseHomePage = document.querySelector(
-  ".showcase-top-image-banner"
+  ".showcase-top-image-banner",
 ) as HTMLDivElement | undefined;
 
 if (!showcaseHomePage) {
   showShowcaseModalInit();
   displayThumbInit();
 }
+
+topNavInit();
 slideNavMenu();
 mobileListInit();
+
 //toggleBottomTabInit();
 //showTextInit();

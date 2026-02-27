@@ -1,12 +1,9 @@
 import { mobileListInit } from "./mobile";
 import {
-  navblocks,
-  showNavBlock,
-  topNavLinks,
-  hideNavBlock,
+  topNavInit,
   slideNavMenu,
 } from "./header";
-//import { toggleBottomTabInit, showTextInit } from "./footer";
+
 import { productFilter } from "./filterMenu";
 import {
   openMobileFilter,
@@ -16,14 +13,6 @@ import {
   mobileProductFilter,
   closeMobilePriceFilter,
 } from "./mobile-filter-menu";
-
-for (let elem of topNavLinks) {
-  elem.addEventListener("click", showNavBlock);
-}
-
-for (let elem of navblocks) {
-  elem.addEventListener("mouseleave", hideNavBlock);
-}
 
 const showModelPic = () => {
   const galleryContainer = document.querySelector(
@@ -360,6 +349,7 @@ function categoryShowWishlistInit() {
 document.addEventListener("DOMContentLoaded", productCount);
 window.addEventListener("resize", hideModalOnResize);
 
+topNavInit();
 slideNavMenu();
 mobileListInit();
 showModelPic();

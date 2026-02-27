@@ -15,9 +15,6 @@ export function openMobileFilter() {
   )!;
 
   const openModal = (e: Event) => {
-    /*const target = e.target as HTMLElement;
-    let elem: HTMLParagraphElement | undefined;
-    if (target) elem = target.closest("p")!; */
     const elem = (e.target as HTMLParagraphElement).closest("p");
     let selection: string | undefined;
     if (elem) {
