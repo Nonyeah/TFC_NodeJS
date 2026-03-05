@@ -7,7 +7,7 @@ import { Request, Response } from "express";
 import { FieldPacket, RowDataPacket } from "mysql2";
 import { SentMessageInfo } from "nodemailer";
 import { DefaultSerializer } from "v8";
-const fs = require("fs");
+const fs = require("fs").promises;
 const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
 
@@ -30,14 +30,16 @@ interface MailOptions {
   from: string | undefined;
   subject: string;
   to: string;
-  text: string;
+  bcc: string;
+  html: string | null;
 }
 
 const mailOptions: MailOptions = {
   from: process.env.EMAIL_USER,
   subject: "Thanks for subscribing",
   to: "",
-  text: "You've been added to our subscriber list. We look forward to communicating with you",
+  bcc: "",
+  html: null
 };
 
 const pool = mysql.createPool({
@@ -162,7 +164,7 @@ app.get("/bags/:category", async (req: Request, res: Response) => {
   let connection;
   try {
     // Get the category type from the requested url
-    let pageCategoryType: string | undefined = req.params.category;
+    let pageCategoryType: string | string[] = req.params.category;
 
     if (!pageCategoryType) {
       return res.render("error", {
@@ -172,7 +174,7 @@ app.get("/bags/:category", async (req: Request, res: Response) => {
       });
     }
     connection = await pool.getConnection();
-    pageCategoryType = pageCategoryType.toLowerCase();
+    pageCategoryType = (pageCategoryType as string).toLowerCase();
 
     if (
       pageCategoryType === "tote" ||
@@ -374,7 +376,7 @@ app.get("/jewellery{/:category}", async (req: Request, res: Response) => {
   let connection;
   try {
     connection = await pool.getConnection();
-    const pageCategoryType: string | undefined = req.params.category;
+    const pageCategoryType: string | string[] = req.params.category;
     if (!pageCategoryType) {
       const [monvatoo]: [RowDataPacket[]] = await connection.execute(
         "SELECT * FROM monvatoo",
@@ -454,7 +456,6 @@ app.get("/jewellery{/:category}", async (req: Request, res: Response) => {
         productCategory: pageCategoryType,
       });
     } else if (
-      pageCategoryType === "gold" ||
       pageCategoryType === "gemstone" ||
       pageCategoryType === "dragon" ||
       pageCategoryType === "animal"
@@ -500,8 +501,9 @@ app.get("/jewellery{/:category}", async (req: Request, res: Response) => {
       });
     } else if (
       pageCategoryType === "fashion" ||
-      pageCategoryType === "silver" ||
-      pageCategoryType === "vermeil"
+      pageCategoryType === "realsilver" ||
+      pageCategoryType === "vermeil" ||
+      pageCategoryType === "realgold"
     ) {
       const [monvatoo] = await connection.execute(
         "SELECT * FROM  monvatoo WHERE material = ?",
@@ -688,7 +690,7 @@ app.get("/clothing/{:productUrl}", async (req: Request, res: Response) => {
     connection = await pool.getConnection();
     let urlPath = req.params.productUrl;
     if (urlPath) {
-      urlPath = urlPath.toLowerCase();
+      urlPath = (urlPath as string).toLowerCase();
       if (
         urlPath === "dresses" ||
         urlPath === "outwear" ||
@@ -757,7 +759,8 @@ app.get("/clothing/{:productUrl}", async (req: Request, res: Response) => {
         } else {
           return res.render("error", {
             type: "Clothing Search",
-            message: "Ahhh shucks, we couldn't find that particular clothing product.",
+            message:
+              "Ahhh shucks, we couldn't find that particular clothing product.",
           });
         }
       }
@@ -812,7 +815,7 @@ app.get("/new-arrivals{/:productUrl}", async (req: Request, res: Response) => {
   let connection;
   try {
     connection = await pool.getConnection();
-    const url: string = req.params.productUrl;
+    const url: string | string[] = req.params.productUrl;
     if (!url) {
       //render new arrivals category pages
       const [newarrivals]: RowDataPacket[] = await connection.execute(
@@ -1205,11 +1208,11 @@ app.post("/wishlist", async (req: Request, res: Response) => {
   }
 });
 
-app.post("/subscribe", (req: Request, res: Response) => {
+app.post("/subscribe", async (req: Request, res: Response) => {
   let subscribeArray: string[] = [];
   try {
     //save user email in email variable
-    const { email } = req.body;
+    let { email } = req.body;
 
     //return if user does not provide email
     if (!email) {
@@ -1217,9 +1220,10 @@ app.post("/subscribe", (req: Request, res: Response) => {
       return;
     }
 
-    const emailCasing = email.toLowerCase();
+    email = email.toLowerCase().trim();
+
     const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    const match = regex.test(emailCasing);
+    const match = regex.test(email);
     if (!match) {
       return res.send(
         "please enter a vaild email address using correct characters",
@@ -1227,10 +1231,11 @@ app.post("/subscribe", (req: Request, res: Response) => {
     }
     //parse current subscriber list and copy current subscribers into subscriber array
     if (email) {
-      let fileContents: string = fs.readFileSync(
+      let fileContents: string = await fs.readFile(
         path.join(__dirname, "subscriber-list.txt"),
-        "utf-8",
+        "utf8",
       );
+
       if (fileContents) {
         subscribeArray = subscribeArray.concat(JSON.parse(fileContents));
         if (subscribeArray.length > 10) {
@@ -1238,44 +1243,44 @@ app.post("/subscribe", (req: Request, res: Response) => {
         }
         //check for duplicate email addresses and replace if a match is found
         let emailMatch: string | undefined = subscribeArray.find(
-          (currentSubscriber) => currentSubscriber === email.toLowerCase(),
+          (currentSubscriber) => currentSubscriber === email,
         );
         if (emailMatch) {
           subscribeArray.splice(subscribeArray.indexOf(emailMatch), 1, email);
         } else {
           //add new subscriber to subscriber array
-          subscribeArray.push(email.toLowerCase());
+          subscribeArray.push(email);
           console.log(email, "email stored");
         }
       } else {
         //if subscriber list is empty
-        subscribeArray.push(email.toLowerCase());
+        subscribeArray.push(email);
       }
     }
 
+    const newsletter = await fs.readFile(path.join(__dirname, "confirm-subscribe.html"), "utf8");
     //add subscriber email to options configuration
-    mailOptions.to = email.trim();
+    mailOptions.to = email;
+    mailOptions.bcc = `hello@thefashionconnector.com`
+    mailOptions.html = newsletter;
 
+    
     //save updated subscriber list
-    fs.writeFileSync(
+    await fs.writeFile(
       path.join(__dirname, "subscriber-list.txt"),
       JSON.stringify(subscribeArray, null, 2),
+      "utf8",
     );
 
     console.log("file updated successfully");
 
-    //res.send(
-    //"You've been added to our subscriber list! Check your email for confirmation"
-    //);
-
-    //send confirmation email to subscriber
     transporter.sendMail(
       mailOptions,
       (err: Error | null, info: SentMessageInfo) => {
         if (err) {
           console.error(err);
         } else {
-          console.log(info);
+          console.log(info, "email list updated successfully");
           res.send(
             "You've been added to our subscriber list! Check your email for confirmation",
           );
