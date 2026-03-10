@@ -15,11 +15,11 @@ export function openMobileFilter() {
   )!;
 
   const openModal = (e: Event) => {
-    const elem = (e.target as HTMLParagraphElement).closest("p");
+    const elem = (e.target as HTMLDivElement).closest("div");
     let selection: string | undefined;
     if (elem) {
-      const div = elem.parentElement as HTMLDivElement;
-      selection = [...div.classList].includes("filter") ? "filter" : "sort";
+      
+      selection = elem.classList.contains("filter") ? "filter" : "sort";
     }
 
     if (selection === "filter") {

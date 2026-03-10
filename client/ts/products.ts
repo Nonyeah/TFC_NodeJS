@@ -302,6 +302,15 @@ function roundButtonShift() {
 const form = document.getElementById("form-wishlist");
 form?.addEventListener("submit", createWishControls);
 
+//alternate wishlist handler
+/*if(form) form.addEventListener("submit", (e: Event ) => {
+  if(!createWishControls()) {
+    e.preventDefault()
+  } else {
+    createWishControls();
+  }
+}) */
+
 const isWishlist: HTMLDivElement | undefined = document.querySelector(
   ".wishlist-container"
 ) as HTMLDivElement | undefined;
